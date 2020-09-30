@@ -1,0 +1,49 @@
+.author-div{
+  text-align: center;
+  padding: 1rem;
+
+}
+.author-div div{
+  margin-bottom: 1rem;
+
+}
+.author-introduction{
+  font-size:.8rem;
+  color: #999;
+  position: relative;
+}
+.account, .accountweixin{
+  background-color: #999;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+.author-img{
+  width: 50px;
+  height: 50px;
+}
+
+.weixinImg{
+  display: none;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  bottom: 16px;
+  right: 35px;
+}
+
+.weixinImgContent{
+  width: 100%;
+  height: 100%;
+}
+
+.accountweixin:hover +.weixinImg{
+  display: block;
+  z-index: 999;
+}
+
+.author-font{
+  /* font-family: "方正姚体"; */
+  font-size: 14px;
+  font-style: oblique;
+}

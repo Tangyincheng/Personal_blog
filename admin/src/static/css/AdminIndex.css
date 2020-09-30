@@ -1,0 +1,23 @@
+.logo {
+  height: 64px;
+  background-color: #001529;
+  background-image: url(../logo.jpg);
+  background-repeat: no-repeat;
+  background-size: 64px 64px;
+  border-bottom: 1px solid #ccc;
+  /* margin: 16px 0; */
+  /* border-radius: 5px; */
+}
+
+.logo::after{
+  content: "博客后台管理系统";
+  float: right;
+  color: rgba(255, 255, 255, 0.65);
+  padding-right: 5px;
+  font-weight: bold;
+  line-height: 64px;
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}

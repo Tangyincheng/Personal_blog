@@ -1,0 +1,31 @@
+.Statistics-div{
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+.Statistics-header{
+  height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 30px;
+  text-align: center;
+}
+
+.Statistics-content{
+  display: flex;
+  justify-content: space-around;
+}
+
+.content-blog-count, .content-access-count{
+  font-size: 12px;
+  padding: 4px 0;
+}
+
+.content-access-count{
+
+}
+
+.count-item{
+  font-size: 12px;
+  font-weight: bold;
+}

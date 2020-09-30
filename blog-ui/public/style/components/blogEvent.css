@@ -1,0 +1,16 @@
+.blogEvent-div{
+  padding: 10px;
+}
+.blogEvent-header{
+  height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 30px;
+  /* padding-left: 6px; */
+  border-bottom: 1px solid #1e90ff;
+}
+
+.blogEvent-content{
+  margin-top: 10px;
+  /* padding-left: 6px; */
+}

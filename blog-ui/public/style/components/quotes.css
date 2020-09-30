@@ -1,0 +1,17 @@
+.Quotes-div{
+  padding: 10px;
+}
+.Quotes-header{
+  height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 30px;
+  /* padding-left: 6px; */
+  border-bottom: 1px solid #1e90ff;
+}
+
+.Quotes-content{
+  font-size: 10px;
+  margin-top: 10px;
+  /* padding-left: 6px; */
+}
