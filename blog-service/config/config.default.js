@@ -51,7 +51,7 @@ module.exports = appInfo => {
     csrf: {
       enable: false
     },
-    domainWhiteList: ['http://localhost:3000', 'http://localhost:3001']
+    domainWhiteList: ['http://localhost:3000', 'http://localhost:8000']
     // domainWhiteList: ['http://www.yctang.club', 'http://www.yctang.club:81']
   };
 
