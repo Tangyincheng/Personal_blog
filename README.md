@@ -1,2 +1,5 @@
 # Personal_blog
-根据jspang的博客课程结合自己的想法开发的博客
+
+效果：http://www.yctang.club
+
+博客使用了nextjs、eggjs、antd开发
