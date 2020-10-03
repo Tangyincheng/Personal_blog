@@ -4,6 +4,10 @@ const reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(
 export const ipUrl = 'http://localhost:7001/admin/';
 export const ipUrlDefault = 'http://localhost:7001/default/';
 
+// export const ipUrl = 'http://www.yctang.club:7001/admin/';
+// export const ipUrlDefault = 'http://www.yctang.club:7001/default/';
+
+
 export const isUrl = (path: string): boolean => reg.test(path);
 
 export const isAntDesignPro = (): boolean => {

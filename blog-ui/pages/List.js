@@ -81,7 +81,7 @@ const myList = (list) => {
 
           <div className="bread-div">
             <Breadcrumb>
-              <Breadcrumb.Item><a href="/" style={{ color: '#1e90ff' }} onClick={() => setLoading(true)}>首页</a></Breadcrumb.Item>
+              <Breadcrumb.Item><a href="/" style={{ color: '#007ca3' }} onClick={() => setLoading(true)}>首页</a></Breadcrumb.Item>
               <Breadcrumb.Item>{navItem}</Breadcrumb.Item>
               {/* <Breadcrumb.Item>{}</Breadcrumb.Item> */}
             </Breadcrumb>

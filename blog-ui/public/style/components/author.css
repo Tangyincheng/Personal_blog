@@ -7,6 +7,10 @@
   margin-bottom: 1rem;
 
 }
+.author-logo{
+  /* border: 1px solid #007ca3; */
+  box-shadow: 10px #999;
+}
 .author-introduction{
   font-size:.8rem;
   color: #999;

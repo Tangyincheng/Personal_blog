@@ -12,7 +12,7 @@
 }
 
 .header-logo{
-  color: #1e90ff;
+  color: #007ca3;
   font-size: 1.6rem;
   text-emphasis: left;
   cursor: pointer;
@@ -44,7 +44,7 @@
 }
 
 .NavBarItem:hover{
-  border-bottom: 1px solid #1e90ff;
+  border-bottom: 1px solid #007ca3;
 }
 
 .NavBarItemleft, .NavBarItemright{

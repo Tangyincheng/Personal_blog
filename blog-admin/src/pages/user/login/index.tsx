@@ -1,9 +1,25 @@
-import React, { useState } from 'react';
-import { UserOutlined, KeyOutlined } from '@ant-design/icons';
-import { Spin, Card, Input, message, Button } from 'antd';
-import { history, History } from 'umi';
+import React, {
+  useState,
+  useEffect
+} from 'react';
+
+import {
+  UserOutlined,
+  KeyOutlined
+} from '@ant-design/icons';
+
+import {
+  Spin,
+  Card,
+  Input,
+  message,
+  Button
+} from 'antd';
+
+import { history } from 'umi';
 import { AIP_Login } from '@/services/login';
 
+import useKeyPress from '@/hooks/useKeyPress';
 import styles from './style.less';
 
 const Login: React.FC<{}> = () => {
@@ -32,14 +48,21 @@ const Login: React.FC<{}> = () => {
     AIP_Login(dataProps).then((res) => {
       setIsLoading(false)
       if (res.data === '登录成功') {
-        localStorage.setItem('openId', res.openId)
-        alert('ok')
+        sessionStorage.setItem('openId', res.openId)
         history.push('/statistics');
       } else {
         message.error('用户名密码错误')
       }
     })
   }
+
+  const enterPressed = useKeyPress(13);
+
+  useEffect(() => {
+    if (enterPressed) {
+      CheckLogin()
+    }
+  })
 
   return (
     <div className={styles.login_div}>

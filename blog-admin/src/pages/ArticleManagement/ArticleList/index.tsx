@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+  useEffect,
+  useState
+} from 'react';
 import {
   Table,
   Button,
@@ -10,22 +13,13 @@ import moment from 'moment';
 import { history } from 'umi';
 
 import { getArticleList, deleteArticle } from '@/services/article';
+import { dataType } from './data.d';
 
 const { confirm } = Modal;
-
-interface dataType {
-  addTime: string;
-  id: number;
-  introduce: string;
-  title: string;
-  typeName: string;
-  view_count: number;
-}
 
 const ArticleList: React.FC<{}> = () => {
 
   const [data, setData] = useState<dataType[]>([])
-
   const column = [
     {
       title: '标题',
@@ -50,6 +44,13 @@ const ArticleList: React.FC<{}> = () => {
       dataIndex: 'view_count',
       key: 'view_count',
       sorter: (a: dataType, b: dataType) => a.view_count - b.view_count
+    },
+    {
+      title: '状态',
+      dataIndex: 'status',
+      key: 'status',
+      sorter: (a: dataType, b: dataType) => a.status - b.status,
+      render: (status: number) => status == 0 ? '暂存' : '已发布'
     },
     {
       title: '操作',
@@ -88,7 +89,11 @@ const ArticleList: React.FC<{}> = () => {
 
   useEffect(() => {
     getArticleList().then(res => {
-      setData(res.list)
+      let data = res.list;
+      for (let i in data) {
+        data[i].key = data[i].id
+      }
+      setData(data)
     })
   }, [])
 

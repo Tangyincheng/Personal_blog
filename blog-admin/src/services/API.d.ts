@@ -38,11 +38,44 @@ declare namespace API {
 
 
 export interface articleType {
+
+  /**
+   * 文章类型id
+   */
   type_id: string;
+
+  /**
+   * 文章标题
+   */
   title: string;
+
+  /**
+   * 文章类容
+   */
   article_content: string;
+
+  /**
+   * 文章简介
+   */
   introduce: string;
+
+  /**
+   * 文章添加时间
+   */
   addTime: number;
+
+  /**
+   * 文章阅读量
+   */
   view_count?: number;
+
+  /**
+   * 文章id
+   */
   id?: number;
+
+  /**
+   * 文章状态
+   */
+  status: number;
 };

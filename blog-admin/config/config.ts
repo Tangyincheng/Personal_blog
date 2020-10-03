@@ -55,26 +55,26 @@ export default defineConfig({
     {
       path: '/statistics',
       name: 'statistics',
-      icon: 'crown',
+      icon: 'LineChartOutlined',
       access: 'statistics',
       component: './Statistics',
     },
     {
       path: '/article',
       name: 'article',
-      icon: 'crown',
+      icon: 'FileMarkdownOutlined',
       access: 'article',
       routes: [
         {
           path: '/article/articleList',
           name: 'articleList',
-          icon: 'smile',
+          icon: 'UnorderedListOutlined',
           component: './ArticleManagement/ArticleList',
         },
         {
           path: '/article/newArticle',
           name: 'newArticle',
-          icon: 'smile',
+          icon: 'FileAddOutlined',
           component: './ArticleManagement/NewArticle',
         },
         {
@@ -87,19 +87,19 @@ export default defineConfig({
       ],
     },
     {
+      path: '/blogConfig',
+      name: 'blogConfig',
+      icon: 'FormOutlined',
+      access: 'blogConfig',
+      component: './BlogConfig',
+    },
+    {
       path: '/messageManagement',
       name: 'messageManagement',
-      icon: 'crown',
+      icon: 'LikeOutlined',
       access: 'messageManagement',
       component: './MessageManagement',
     },
-    {
-      name: 'list.table-list',
-      icon: 'table',
-      path: '/list',
-      component: './ListTableList',
-    },
-
     {
       component: './404',
     },

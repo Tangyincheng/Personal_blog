@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
 
-const MessageManagement: React.FC<{}> = () => {
+const BlogConfig: React.FC<{}> = () => {
 
   return (
     <PageContainer>
@@ -12,4 +12,4 @@ const MessageManagement: React.FC<{}> = () => {
   )
 }
 
-export default MessageManagement;
+export default BlogConfig;

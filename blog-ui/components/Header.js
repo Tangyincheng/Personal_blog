@@ -49,7 +49,8 @@ const Header = () => {
         <Row type="flex" justify="center">
           <Col xs={24} sm={24} md={18} lg={12} xl={12}>
             <Link href={{ pathname: '/' }}>
-              <span className="header-logo"><strong>yctang</strong></span>
+              <img src="http://www.yctang.club/static/header.png" style={{ width: '100px' }} />
+              {/* <span className="header-logo"><strong>yctang</strong></span> */}
             </Link>
             <span className="header-txt"><strong className="header-font">The Future Depends on You</strong></span>
           </Col>

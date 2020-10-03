@@ -5,12 +5,12 @@ export default () => (
   <DefaultFooter
     copyright="2020 yctang博客管理系统"
     links={[
-      {
-        key: 'yctang',
-        title: 'yctang',
-        href: 'http://www.yctang.club',
-        blankTarget: true,
-      }
+      // {
+      //   key: 'yctang',
+      //   title: 'yctang',
+      //   href: 'http://www.yctang.club',
+      //   blankTarget: true,
+      // }
     ]}
   />
 );

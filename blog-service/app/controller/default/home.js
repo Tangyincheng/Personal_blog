@@ -11,6 +11,7 @@ class HomeController extends Controller {
     this.ctx.body = result;
   }
 
+  // 获取文章列表
   async getArticleList() {
     let sql = 'SELECT article.Id as id ,' +
       'article.title as title ,' +
@@ -18,7 +19,7 @@ class HomeController extends Controller {
       "FROM_UNIXTIME(article.addTime,'%Y-%m-%d %H:%i:%s' ) as addTime ," +
       'article.view_count as view_count ,' +
       'type.typeName as typeName ' +
-      'FROM article  LEFT JOIN type ON article.type_id = type.Id ORDER BY addTime DESC LIMIT 10';
+      'FROM article  LEFT JOIN type ON article.type_id = type.Id WHERE STATUS = 1 ORDER BY addTime DESC LIMIT 10';
 
     // let sql = 'SELECT * FROM article';
 

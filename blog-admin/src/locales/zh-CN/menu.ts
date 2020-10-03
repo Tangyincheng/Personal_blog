@@ -30,6 +30,7 @@ export default {
   'menu.article.articleList': '文章列表',
   'menu.article.newArticle': '新建文章',
 
+  'menu.blogConfig': '博客配置',
   'menu.messageManagement': '留言管理',
 
   'menu.list.basic-list': '标准列表',

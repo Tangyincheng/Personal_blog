@@ -72,7 +72,7 @@ const Home = (list) => {
                 <Spin tip="加载中..." spinning={loading}>
                   <div className="list-title" onClick={() => setLoading(true)}>
                     <Link href={{ pathname: '/detailed', query: { id: item.id } }}>
-                      <a>{item.title}</a>
+                      <a style={{ color: '#007ca3' }}>{item.title}</a>
                     </Link>
                   </div>
                   <div className="list-icon">

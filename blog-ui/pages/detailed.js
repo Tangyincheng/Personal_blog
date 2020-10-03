@@ -87,7 +87,7 @@ const Detailed = (props) => {
             <Spin tip="加载中..." spinning={loading}>
               <div className="bread-div">
                 <Breadcrumb>
-                  <Breadcrumb.Item><a href="/" style={{ color: '#1e90ff' }} onClick={() => setLoading(true)}>首页</a></Breadcrumb.Item>
+                  <Breadcrumb.Item><a href="/" style={{ color: '#007ca3' }} onClick={() => setLoading(true)}>首页</a></Breadcrumb.Item>
                   <Breadcrumb.Item>{props.typeName}</Breadcrumb.Item>
                   <Breadcrumb.Item>{props.title}</Breadcrumb.Item>
                 </Breadcrumb>

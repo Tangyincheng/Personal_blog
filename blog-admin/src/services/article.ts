@@ -1,7 +1,6 @@
 import { request } from 'umi';
-import { stringify } from 'qs';
 
-import { ipUrl, ipUrlDefault } from '../utils/utils';
+import { ipUrl } from '../utils/utils';
 
 import { articleType } from './API.d';
 
