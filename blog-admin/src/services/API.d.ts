@@ -35,3 +35,14 @@ declare namespace API {
     status: string;
   }
 }
+
+
+export interface articleType {
+  type_id: string;
+  title: string;
+  article_content: string;
+  introduce: string;
+  addTime: number;
+  view_count?: number;
+  id?: number;
+};

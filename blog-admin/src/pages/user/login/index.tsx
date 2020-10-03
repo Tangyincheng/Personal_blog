@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UserOutlined, KeyOutlined } from '@ant-design/icons';
 import { Spin, Card, Input, message, Button } from 'antd';
-import { history } from 'umi';
+import { history, History } from 'umi';
 import { AIP_Login } from '@/services/login';
 
 import styles from './style.less';
@@ -33,7 +33,8 @@ const Login: React.FC<{}> = () => {
       setIsLoading(false)
       if (res.data === '登录成功') {
         localStorage.setItem('openId', res.openId)
-        history.replace('/statistics');
+        alert('ok')
+        history.push('/statistics');
       } else {
         message.error('用户名密码错误')
       }

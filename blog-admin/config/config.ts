@@ -12,7 +12,7 @@ export default defineConfig({
     hmr: true,
   },
   layout: {
-    name: 'Ant Design Pro',
+    name: 'yctang',
     locale: true,
   },
   locale: {
@@ -30,6 +30,10 @@ export default defineConfig({
   },
   // umi routes: https://umijs.org/docs/routing
   routes: [
+    {
+      path: '/',
+      redirect: '/statistics',
+    },
     {
       path: '/user',
       layout: false,
@@ -54,14 +58,6 @@ export default defineConfig({
       icon: 'crown',
       access: 'statistics',
       component: './Statistics',
-      // routes: [
-      //   {
-      //     path: '/admin/sub-page',
-      //     name: 'sub-page',
-      //     icon: 'smile',
-      //     component: './Welcome',
-      //   },
-      // ],
     },
     {
       path: '/article',
@@ -81,6 +77,13 @@ export default defineConfig({
           icon: 'smile',
           component: './ArticleManagement/NewArticle',
         },
+        {
+          path: '/article/newArticle/:id',
+          name: 'newArticle',
+          icon: 'smile',
+          component: './ArticleManagement/NewArticle',
+          hideInMenu: true
+        },
       ],
     },
     {
@@ -96,10 +99,7 @@ export default defineConfig({
       path: '/list',
       component: './ListTableList',
     },
-    {
-      path: '/',
-      redirect: '/user/login',
-    },
+
     {
       component: './404',
     },

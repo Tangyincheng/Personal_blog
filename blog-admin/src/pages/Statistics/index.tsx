@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageContainer, FooterToolbar } from '@ant-design/pro-layout';
+import { PageContainer } from '@ant-design/pro-layout';
 
 const Statistics: React.FC<{}> = () => {
 
