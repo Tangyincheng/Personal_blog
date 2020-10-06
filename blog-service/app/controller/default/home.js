@@ -49,7 +49,7 @@ class HomeController extends Controller {
 
   //得到类别名称和编号
   async getTypeInfo() {
-    const sql = 'SELECT * FROM type ORDER BY orderNum ';
+    const sql = 'SELECT * FROM type ORDER BY Id ';
     // console.log()
     const result = await this.app.mysql.query(sql);
     this.ctx.body = { data: result };

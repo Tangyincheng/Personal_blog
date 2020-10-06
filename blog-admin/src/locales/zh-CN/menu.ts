@@ -31,6 +31,11 @@ export default {
   'menu.article.newArticle': '新建文章',
 
   'menu.blogConfig': '博客配置',
+  'menu.blogConfig.articleCategory': '文章分类',
+  'menu.blogConfig.blogEvent': '博客大事件',
+  'menu.blogConfig.friendshipLink': '友情链接',
+
+
   'menu.messageManagement': '留言管理',
 
   'menu.list.basic-list': '标准列表',

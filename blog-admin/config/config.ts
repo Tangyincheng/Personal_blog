@@ -91,7 +91,27 @@ export default defineConfig({
       name: 'blogConfig',
       icon: 'FormOutlined',
       access: 'blogConfig',
-      component: './BlogConfig',
+      // component: './BlogConfig',
+      routes: [
+        {
+          path: '/blogConfig/articleCategory',
+          name: 'articleCategory',
+          icon: 'UnorderedListOutlined',
+          component: './BlogConfig/ArticleCategory',
+        },
+        {
+          path: '/blogConfig/blogEvent',
+          name: 'blogEvent',
+          icon: 'FileAddOutlined',
+          component: './BlogConfig/BlogEvent',
+        },
+        {
+          path: '/blogConfig/friendshipLink',
+          name: 'friendshipLink',
+          icon: 'smile',
+          component: './BlogConfig/FriendshipLink',
+        },
+      ],
     },
     {
       path: '/messageManagement',

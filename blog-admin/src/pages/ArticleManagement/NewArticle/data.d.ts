@@ -10,11 +10,6 @@ export interface typeInfoType {
    */
   icon: string;
 
-  /**
-   * 排序id
-   */
-  orderNum: number;
-
   /***
    * 类型名称
    */

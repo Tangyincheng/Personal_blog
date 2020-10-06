@@ -54,10 +54,8 @@ const ArticleType = (props) => {
     if (typeNum.length > 0 && navArray.length > 0) {
       for (let i in navArray) {
         for (let j in typeNum) {
-          // console.log('navArray[i].orderNum == typeNum[j].type_id', navArray[i].orderNum == typeNum[j].type_id)
-          if (navArray[i].orderNum == typeNum[j].type_id) {
+          if (navArray[i].Id == typeNum[j].type_id) {
             temp[i].typeNum = typeNum[j].num
-            // console.log('temp[i].typeNum', temp[i])
           }
         }
       }
@@ -67,17 +65,15 @@ const ArticleType = (props) => {
         }
       }
       setData(temp)
-      // console.log('temp', temp)
     }
   }, [typeNum, navArray])
 
   //跳转到列表页
   const handleClick = (e) => {
-    // console.log('e', e)
     if (e.key == 0) {
       Router.push('/');
     } else {
-      Router.push('/List?id=' + e.orderNum + '&loading=' + loading);
+      Router.push('/List?id=' + e.Id + '&loading=' + loading);
     }
   }
 
@@ -92,7 +88,7 @@ const ArticleType = (props) => {
         {
           data && data.map((item) => (
             <div
-              key={item.orderNum}
+              key={item.Id}
               onClick={() => { handleClick(item); setLoading(true) }}
               className="articleType-items"
             >

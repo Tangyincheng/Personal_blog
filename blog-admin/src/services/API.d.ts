@@ -79,3 +79,44 @@ export interface articleType {
    */
   status: number;
 };
+
+export interface articleStateType {
+  /**
+   * 添加是否成功
+   */
+  isScuccess: boolean;
+  /**
+   * 分类id
+   */
+  insertId: number;
+}
+
+export interface articleType {
+  /**
+   * 分类名称
+   */
+  typeName: string;
+
+  /**
+   * 分类icon
+   */
+  icon: string;
+}
+
+export interface newType {
+
+  /**
+   * 分类id 修改时使用
+   */
+  Id?: number;
+
+  /**
+   * icon
+   */
+  icon: string;
+
+  /**
+   * 分类名称
+   */
+  typeName: string;
+}

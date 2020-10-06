@@ -23,7 +23,7 @@ body{
 .comm-box{
   background-color: #FFF;
   margin-left: .5rem;
-  padding:.3rem;
+  /* padding:.3rem; */
   border-radius: .3rem;
   border-bottom:1px solid #eee;
 }
