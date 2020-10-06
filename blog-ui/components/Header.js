@@ -47,12 +47,12 @@ const Header = () => {
     <div className="header">
       <div className="header-content">
         <Row type="flex" justify="center">
-          <Col xs={24} sm={24} md={18} lg={12} xl={12}>
+          <Col xs={24} sm={24} md={18} lg={12} xl={12} style={{ display: 'flex', alignContent: 'end' }}>
             <Link href={{ pathname: '/' }}>
               <img src="http://www.yctang.club/static/header.png" style={{ width: '100px' }} />
               {/* <span className="header-logo"><strong>yctang</strong></span> */}
             </Link>
-            <span className="header-txt"><strong className="header-font">The Future Depends on You</strong></span>
+            <div className="header-txt"><strong className="header-font">The Future Depends on You</strong></div>
           </Col>
           <Col xs={0} sm={0} md={6} lg={12} xl={12} />
         </Row>

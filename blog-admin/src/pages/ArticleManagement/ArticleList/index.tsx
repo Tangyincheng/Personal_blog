@@ -14,6 +14,7 @@ import { history } from 'umi';
 
 import { getArticleList, deleteArticle } from '@/services/article';
 import { dataType } from './data.d';
+import { isLogin } from '@/utils/utils';
 
 const { confirm } = Modal;
 
@@ -89,11 +90,13 @@ const ArticleList: React.FC<{}> = () => {
 
   useEffect(() => {
     getArticleList().then(res => {
-      let data = res.list;
-      for (let i in data) {
-        data[i].key = data[i].id
+      if (isLogin(res)) {
+        let data = res.list;
+        for (let i in data) {
+          data[i].key = data[i].id
+        }
+        setData(data)
       }
-      setData(data)
     })
   }, [])
 

@@ -25,6 +25,7 @@ import {
 } from '@/services/article';
 import { typeInfoType } from './data.d';
 import { articleType } from '@/services/API.d';
+import { isLogin } from '@/utils/utils'
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -123,12 +124,15 @@ const NewArticle: React.FC<{}> = (props) => {
   const getTypeInfo = () => {
     getArticleType().then(
       res => {
-        if (res.data === "没有登录") {
-          sessionStorage.removeItem('openId')
-          history.push('/user/login')
-        } else {
+        if(isLogin(res)){
           setTypeInfo(res.data)
         }
+        // if (res.data === "没有登录") {
+        //   sessionStorage.removeItem('openId')
+        //   history.push('/user/login')
+        // } else {
+        //   setTypeInfo(res.data)
+        // }
       })
   }
 
