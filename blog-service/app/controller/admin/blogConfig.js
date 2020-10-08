@@ -96,6 +96,7 @@ class BlogConfigController extends Controller {
     const res = await this.app.mysql.delete('friends_link', { 'id': id })
     this.ctx.body = { data: res }
   }
+
 }
 
 module.exports = BlogConfigController;

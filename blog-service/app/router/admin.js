@@ -25,9 +25,13 @@ module.exports = app => {
   router.get('/admin/delBlogEvent/:id', controller.admin.blogConfig.delBlogEvent); // 删
   router.post('/admin/upDateBlogEvent', controller.admin.blogConfig.upDateBlogEvent); // 改
 
-  // // BlogConfig-友情链接
+  // BlogConfig-友情链接
   router.get('/admin/getFrindsLink', controller.admin.blogConfig.getFrindsLink); // 查
   router.post('/admin/addFrindLink', controller.admin.blogConfig.addFrindLink);// 增
   router.get('/admin/deleteFindLink/:id', controller.admin.blogConfig.deleteFindLink); // 删
   router.post('/admin/updateFrindLink', controller.admin.blogConfig.updateFrindLink); // 改
+
+  // BlogConfig-素材
+  router.post('/admin/upLoadMaterial', controller.admin.upLoadMaterial.upLoadMaterial);// 增
+  
 }
