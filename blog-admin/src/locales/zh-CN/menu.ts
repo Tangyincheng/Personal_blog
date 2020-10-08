@@ -34,6 +34,7 @@ export default {
   'menu.blogConfig.articleCategory': '文章分类',
   'menu.blogConfig.blogEvent': '博客大事件',
   'menu.blogConfig.friendshipLink': '友情链接',
+  'menu.blogConfig.blogMaterial': '博客素材',
 
 
   'menu.messageManagement': '留言管理',

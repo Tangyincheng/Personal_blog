@@ -111,6 +111,12 @@ export default defineConfig({
           icon: 'smile',
           component: './BlogConfig/FriendshipLink',
         },
+        {
+          path: '/blogConfig/blogMaterial',
+          name: 'blogMaterial',
+          icon: 'smile',
+          component: './BlogConfig/BlogMaterial',
+        },
       ],
     },
     {

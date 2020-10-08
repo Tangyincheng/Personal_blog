@@ -8,6 +8,9 @@ let servicePath = {
   getListById: ipUrl + 'getListById/',  // 根据类别ID获得文章列表
   updateArticleView: ipUrl + 'updateArticleView', // 更新文章访问量
   getTypeNum: ipUrl + 'getTypeNum',   // 文章分类数量
-  getBlogCountNum: ipUrl + 'getBlogCountNum'    // 博客文章信息统计
+  getBlogCountNum: ipUrl + 'getBlogCountNum',    // 博客文章信息统计
+
+  getBlogEvent: ipUrl + 'getBlogEvent',    // 博客大事件
+  getFrindsLink: ipUrl + 'getFrindsLink'    // 友情链接
 }
 export default servicePath;

@@ -17,47 +17,17 @@ import '../public/style/pages/index.css';
 import servicePath from '../config/apiUrl';
 
 const myList = (list) => {
+
+  const { type: typeName, loading: loadingProps } = list.router.query;
+  const top = 0;
+  const advert = 54;
   const [mylist, setMylist] = useState();
-  const [top, setTop] = useState(0);
-  const [advert, setAdvert] = useState(54);
   const [loading, setLoading] = useState(false)
-  // console.log('mylist', mylist)
-  const [navItem, setNavItem] = useState('') // 导航栏
-  const id = list.router.query.id;
-  const loadingProps = list.router.query.loading;
+
+  // const loadingProps = list.router.query.loading;
   const propleNum = classNames({
     'propleFire': true
   })
-
-  useEffect(() => {
-
-    if (id) {
-      switch (id) {
-        case '1':
-          setNavItem('JavaScript')
-          break;
-        case '2':
-          setNavItem('TypeScript')
-          break;
-        case '3':
-          setNavItem('Vue')
-          break;
-        case '4':
-          setNavItem('React')
-          break;
-        case '5':
-          setNavItem('HTML&CSS')
-          break;
-        case '6':
-          setNavItem('小程序')
-          break;
-        case '7':
-          setNavItem('其他')
-          break;
-        default: break;
-      }
-    }
-  }, [id])
 
   useEffect(() => { setMylist(list.data) })
 
@@ -82,7 +52,7 @@ const myList = (list) => {
           <div className="bread-div">
             <Breadcrumb>
               <Breadcrumb.Item><a href="/" style={{ color: '#007ca3' }} onClick={() => setLoading(true)}>首页</a></Breadcrumb.Item>
-              <Breadcrumb.Item>{navItem}</Breadcrumb.Item>
+              <Breadcrumb.Item>{typeName}</Breadcrumb.Item>
               {/* <Breadcrumb.Item>{}</Breadcrumb.Item> */}
             </Breadcrumb>
           </div>
@@ -94,7 +64,7 @@ const myList = (list) => {
                 <Spin tip="加载中..." spinning={loading}>
                   <div className="list-title" onClick={() => setLoading(true)}>
                     <Link href={{ pathname: '/detailed', query: { id: item.id } }}>
-                      <a>{item.title}</a>
+                      <a style={{ color: '#007ca3' }}>{item.title}</a>
                     </Link>
                   </div>
                   <div className="list-icon">

@@ -73,7 +73,7 @@ const ArticleType = (props) => {
     if (e.key == 0) {
       Router.push('/');
     } else {
-      Router.push('/List?id=' + e.Id + '&loading=' + loading);
+      Router.push('/List?id=' + e.Id + '&loading=' + loading+ '&type=' + e.typeName);
     }
   }
 

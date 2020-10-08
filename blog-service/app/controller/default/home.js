@@ -65,7 +65,7 @@ class HomeController extends Controller {
       'article.view_count as view_count ,' +
       'type.typeName as typeName ' +
       'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
-      'WHERE type_id=' + id + ' ORDER BY addTime DESC'
+      'WHERE STATUS = 1 AND type_id=' + id + '  ORDER BY addTime DESC'
     const result = await this.app.mysql.query(sql);
     this.ctx.body = { data: result };
   }
@@ -83,7 +83,7 @@ class HomeController extends Controller {
 
   //文章分类数量
   async getTypeNum() {
-    const sql = 'SELECT type_id, COUNT(CASE WHEN type_id THEN 1 END) AS num FROM article GROUP BY type_id';
+    const sql = 'SELECT type_id, COUNT(CASE WHEN type_id THEN 1 END ) AS num FROM article WHERE STATUS = 1 GROUP BY type_id ';
     // console.log()
     const result = await this.app.mysql.query(sql);
     this.ctx.body = { data: result };

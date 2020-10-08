@@ -13,4 +13,7 @@ module.exports = app => {
   router.get('/default/getBlogCountNum', controller.default.home.getBlogCountNum)
   router.post('/default/updateArticleView', controller.default.home.updateArticleView)
   
+  router.get('/default/getBlogEvent', controller.default.blogConfig.getBlogEvent)
+  router.get('/default/getFrindsLink', controller.default.blogConfig.getFrindsLink)
+  
 }

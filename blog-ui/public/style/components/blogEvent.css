@@ -14,3 +14,10 @@
   margin-top: 10px;
   /* padding-left: 6px; */
 }
+
+.ant-timeline-item-content{
+  min-height: 0px !important;
+}
+.ant-timeline-item-last{
+  padding: 0 !important;
+}

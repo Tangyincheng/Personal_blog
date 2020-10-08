@@ -120,3 +120,44 @@ export interface newType {
    */
   typeName: string;
 }
+
+export interface blogEventType {
+
+  /**
+   * 内容
+   */
+  content: string;
+
+  /**
+   * id
+   */
+  id?: number;
+
+  /**
+   * key
+   */
+  key?: number;
+}
+
+export interface friendshipLink {
+
+  /**
+   * id
+   */
+  id: number;
+
+  /**
+   * 内容
+   */
+  content: string;
+
+  /**
+   * 链接
+   */
+  link: string;
+
+  /**
+   * key
+   */
+  key: number;
+}
