@@ -65,6 +65,9 @@ const BlogMaterial: React.FC<{}> = () => {
   const props = {
     name: 'file',
     action: `${ipUrl}upLoadMaterial?typeName=${typeName}`,
+    headers: {
+      authorization: 'authorization-text',
+    },
     onChange(info: any) {
       if (info.file.status !== 'uploading') {
         console.log(info.file, info.fileList);
