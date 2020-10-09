@@ -35,7 +35,7 @@ const Header = () => {
     if (e.Id == 0) {
       Router.push('/');
     } else {
-      Router.push('/List?id=' + e.Id);
+      Router.push('/List?id=' + e.Id + '&type=' + e.typeName);
     }
   }
 

@@ -91,3 +91,10 @@ export async function deleteFindLink(params: number) {
     credentials: 'include'
   });
 }
+
+// 素材-查询
+export async function getBlogMaterial() {
+  return request(`${ipUrl}getBlogMaterial`, {
+    credentials: 'include'
+  });
+}

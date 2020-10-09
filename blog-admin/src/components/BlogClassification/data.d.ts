@@ -13,6 +13,11 @@ export interface articleType {
    * 类型名称
    */
   typeName: string;
+
+  /**
+   * 类型附属名称
+   */
+  subTypeName: string;
 }
 
 export interface newType {

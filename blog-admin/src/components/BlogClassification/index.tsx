@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Table, Button, Modal, Form, Input, message } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 import { getArticleType } from '@/services/article';
 import { articleType, newType } from './data';
 import { addArticleType, deleteArticle, upDateType } from '@/services/BlogConfig';
+
+const { confirm } = Modal;
 
 const BlogClassification: React.FC<{}> = () => {
 
@@ -24,6 +27,8 @@ const BlogClassification: React.FC<{}> = () => {
 
   const newArticleType = () => {
     setOperationStatus('添加分类')
+    form.resetFields();
+    setTypeId(0);
     setAddVisible(true);
   }
 
@@ -45,13 +50,18 @@ const BlogClassification: React.FC<{}> = () => {
       key: 'typeName',
     },
     {
+      title: '附属名称',
+      dataIndex: 'subTypeName',
+      key: 'subTypeName',
+    },
+    {
       title: '操作',
       render: (item: articleType) => (
         <>
           {/* <Button type="primary" >上调</Button>&nbsp; */}
           {/* <Button type="primary" >下调</Button>&nbsp; */}
           <Button type="primary" onClick={() => upDateArticleType(item)}>修改</Button>&nbsp;
-          <Button onClick={() => delArticleType(item.Id)}>删除 </Button>
+          <Button onClick={() => delArticleType(item)}>删除 </Button>
         </>
       )
     }
@@ -80,18 +90,30 @@ const BlogClassification: React.FC<{}> = () => {
   }
 
   // 删除分类
-  const delArticleType = (id: number) => {
-    deleteArticle(id).then(res => {
-      getArticleType().then(res => {
-        setArticleType(res.data);
-      })
-    })
+  const delArticleType = (item: articleType) => {
+
+    confirm({
+      title: '确定要删除此类型?',
+      icon: <ExclamationCircleOutlined />,
+      content: item.typeName,
+      onOk() {
+        deleteArticle(item.Id).then(res => {
+          message.info('删除成功')
+          getArticleType().then(res => {
+            setArticleType(res.data);
+          })
+        })
+      },
+      onCancel() {
+        console.log('Cancel');
+      },
+    });
   }
 
   // 修改分类
   const upDateArticleType = (item: articleType) => {
     setOperationStatus('修改分类')
-    form.setFieldsValue({ icon: item.icon, typeName: item.typeName })
+    form.setFieldsValue({ icon: item.icon, typeName: item.typeName, subTypeName: item.subTypeName })
     setTypeId(item.Id)
     setAddVisible(true);
   }
@@ -132,11 +154,17 @@ const BlogClassification: React.FC<{}> = () => {
           >
             <Input />
           </Form.Item>
-          <br />
           <Form.Item
             label="名称"
             name="typeName"
             rules={[{ required: true, message: '请填写分类名称' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="附属名称"
+            name="subTypeName"
+            rules={[{ required: true, message: '请填写分类附属名称' }]}
           >
             <Input />
           </Form.Item>

@@ -1,27 +1,71 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Card,
   Upload,
   Button,
-  message
+  message,
+  Table,
+  Image,
+  Modal,
+  Select
 } from 'antd';
 import { PageContainer } from '@ant-design/pro-layout';
 import { UploadOutlined } from '@ant-design/icons';
 
+import {
+  getBlogMaterial,
+} from '@/services/BlogConfig';
+import { getArticleType } from '@/services/article';
+import { materialType } from './data';
+import { articleType } from '../../../components/BlogClassification/data';
 import { ipUrl } from '@/utils/utils';
+
+const { Option } = Select;
 
 const BlogMaterial: React.FC<{}> = () => {
 
-  const newBlogMaterial = () => { }
+  const [materialData, setMaterialData] = useState<materialType[]>([]);
+  const [articleType, setArticleType] = useState<articleType[]>([]);
+  const [typeName, setTypeName] = useState<string>('');
+  const [addVisible, setAddVisible] = useState<boolean>(false);
+
+  const columns = [
+    {
+      title: '序号',
+      dataIndex: 'id',
+      key: 'id',
+      sorter: (a: materialType, b: materialType) => a.id - b.id
+    },
+    {
+      title: '缩略图',
+      dataIndex: 'material_link',
+      key: 'material_link',
+      render: ((item: string) => {
+        return <Image src={item} alt="" width={100} />
+      })
+    },
+    {
+      title: '链接',
+      dataIndex: 'material_link',
+      key: 'material_link',
+    },
+    {
+      title: '名称',
+      dataIndex: 'material_name',
+      key: 'material_name',
+    },
+    {
+      title: '分类',
+      dataIndex: 'material_type',
+      key: 'material_type',
+      sorter: (a: materialType, b: materialType) => a.material_type.localeCompare(b.material_type)
+    },
+  ]
 
   const props = {
     name: 'file',
-    action: 'http://localhost:7001/admin/upLoadMaterial',
-    // headers: {
-    //   authorization: 'authorization-text',
-    // },
+    action: `${ipUrl}upLoadMaterial?typeName=${typeName}`,
     onChange(info: any) {
-      console.log('1111111111', info)
       if (info.file.status !== 'uploading') {
         console.log(info.file, info.fileList);
       }
@@ -33,14 +77,63 @@ const BlogMaterial: React.FC<{}> = () => {
     },
   };
 
+  useEffect(() => {
+    getBlogMaterial().then(res => {
+      if (res.code == 1) {
+        setMaterialData(res.data);
+      }
+    })
+
+    getArticleType().then(res => {
+      setArticleType(res.data);
+    })
+  }, [])
+
+
   return (
     <PageContainer>
       <Card title="图片素材" extra={
-        <Upload {...props}>
-          <Button type="primary" icon={<UploadOutlined />} >添加素材</Button>
-        </Upload>
+        <Button type="primary" icon={<UploadOutlined />} onClick={() => setAddVisible(true)}>添加素材</Button>
       }>
-        待开发...
+        <Table dataSource={materialData} columns={columns} />
+
+        <Modal
+          title="添加素材"
+          visible={addVisible}
+          // onOk={}
+          onCancel={() => setAddVisible(false)}
+          footer={null}
+        >
+          <div>
+            <div>请选择素材分类:</div>
+            <Select
+              style={{ width: '200px', margin: '10px 0' }}
+              onChange={e => setTypeName(e)}
+            >
+              {
+                articleType.map(item => (
+                  <Option
+                    value={item.subTypeName}
+                    key={item.Id}
+                  >
+                    {item.typeName}
+                  </Option>
+                ))
+              }
+            </Select>
+            {
+              typeName &&
+              <div>
+                <Upload
+                  {...props}
+                  withCredentials={true}
+                >
+                  <Button type="primary" icon={<UploadOutlined />} onClick={() => setAddVisible(true)}>选择素材</Button>
+                </Upload>
+              </div>
+            }
+          </div>
+        </Modal>
       </Card>
     </PageContainer>
   )

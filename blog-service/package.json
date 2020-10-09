@@ -12,6 +12,7 @@
     "egg-cors": "^2.2.3",
     "egg-mysql": "^3.0.0",
     "egg-scripts": "^2.11.0",
+    "mkdirp": "^1.0.4",
     "stream-wormhole": "^1.1.0"
   },
   "devDependencies": {
