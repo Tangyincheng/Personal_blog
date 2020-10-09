@@ -8,21 +8,27 @@ import { articleType } from './API.d';
  * 文章列表
  */
 export async function getArticleList() {
-  return request(`${ipUrl}getArticleList`);
+  return request(`${ipUrl}getArticleList`, {
+    credentials: 'include'
+  });
 };
 
 /**
  * 文章类型
  */
 export async function getArticleType() {
-  return request(`${ipUrl}getTypeInfo`);
+  return request(`${ipUrl}getTypeInfo`, {
+    credentials: 'include'
+  });
 };
 
 /**
  * 删除文章
  */
 export async function deleteArticle(params: string) {
-  return request(`${ipUrl}delArticle/${params}`);
+  return request(`${ipUrl}delArticle/${params}`, {
+    credentials: 'include'
+  });
 };
 
 /**
@@ -32,6 +38,7 @@ export async function addArticle(params: articleType) {
   return request(`${ipUrl}addArticle`, {
     method: 'POST',
     data: params,
+    credentials: 'include'
   });
 }
 
@@ -39,9 +46,12 @@ export async function updateArticle(params: articleType) {
   return request(`${ipUrl}updateArticle`, {
     method: 'POST',
     data: params,
+    credentials: 'include'
   });
 }
 
 export async function getArticleById(params: string) {
-  return request(`${ipUrl}getArticleById/${params}`);
+  return request(`${ipUrl}getArticleById/${params}`, {
+    credentials: 'include'
+  });
 }

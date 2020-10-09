@@ -9,5 +9,7 @@ import { ipUrlDefault } from '../utils/utils';
  * 文章列表
  */
 export async function getBlogCount() {
-  return request(`${ipUrlDefault}getBlogCountNum`);
+  return request(`${ipUrlDefault}getBlogCountNum`, {
+    credentials: 'include'
+  });
 };

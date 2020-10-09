@@ -51,8 +51,8 @@ module.exports = appInfo => {
     csrf: {
       enable: false
     },
-    domainWhiteList: ['http://localhost:3000', 'http://localhost:8000']
-    // domainWhiteList: ['http://www.yctang.club', 'http://www.yctang.club:81']
+    // domainWhiteList: ['http://localhost:3001', 'http://localhost:8000']
+    domainWhiteList: ['http://www.yctang.club', 'http://www.yctang.club:81']
   };
 
   config.cors = {

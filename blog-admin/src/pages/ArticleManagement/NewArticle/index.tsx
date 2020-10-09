@@ -26,6 +26,7 @@ import {
 import { typeInfoType } from './data.d';
 import { articleType } from '@/services/API.d';
 import { isLogin } from '@/utils/utils'
+import { isArray } from 'lodash';
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -124,7 +125,7 @@ const NewArticle: React.FC<{}> = (props) => {
   const getTypeInfo = () => {
     getArticleType().then(
       res => {
-        if(isLogin(res)){
+        if (isLogin(res)) {
           setTypeInfo(res.data)
         }
         // if (res.data === "没有登录") {
@@ -196,7 +197,7 @@ const NewArticle: React.FC<{}> = (props) => {
                   style={{ width: '100%' }}
                 >
                   {
-                    typeInfo.map((item: typeInfoType, index: number) => {
+                    isArray(typeInfo) && typeInfo.map((item: typeInfoType, index: number) => {
                       return (
                         <Option value={item.Id} key={index}>{item.typeName}</Option>
                       )
