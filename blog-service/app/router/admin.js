@@ -32,7 +32,8 @@ module.exports = app => {
   router.post('/admin/updateFrindLink', adminauth, controller.admin.blogConfig.updateFrindLink); // 改
 
   // BlogConfig-素材
-  router.get('/admin/getBlogMaterial', adminauth, controller.admin.upLoadMaterial.getBlogMaterial); // 查
+  router.get('/admin/getBlogMaterial/:currentPage/:pageSize', controller.admin.upLoadMaterial.getBlogMaterial); // 查
   router.post('/admin/upLoadMaterial', adminauth, controller.admin.upLoadMaterial.upLoadMaterial);// 增
+  router.get('/admin/deleteBlogMaterial/:id', adminauth, controller.admin.upLoadMaterial.deleteBlogMaterial);// 删
 
 }

@@ -13,18 +13,21 @@ const Controller = require('egg').Controller;
 
 class upLoadMaterial extends Controller {
 
-  // 素材
+  // 素材-查询
   async getBlogMaterial() {
-    let resType = await this.app.mysql.select('blog_material', {
-      orders: [['id']]
-    })
+    const currentPage = this.ctx.params.currentPage;
+    const pageSize = this.ctx.params.pageSize;
+
+    const sql = `SELECT * FROM blog_material ORDER BY id LIMIT ${pageSize} OFFSET ${pageSize * (currentPage - 1)}`
+
+    let resType = await this.app.mysql.query(sql);
     for (let i in resType) {
       resType[i].key = resType[i].id;
     }
     this.ctx.body = { code: 1, data: resType }
   }
 
-  // 素材上传
+  // 素材-上传
   async upLoadMaterial() {
     let typeName = this.ctx.request.url.split("=")[1];
 
@@ -34,41 +37,34 @@ class upLoadMaterial extends Controller {
     console.log('typeName', typeName)
     // 获取文件流
     const stream = await this.ctx.getFileStream();
+    // 目标文件夹
+    const targetFolder = path.join(path.resolve(), `../image/${typeName}`);
     // 目标文件
     const target = path.join(path.resolve(), `../image/${typeName}`, stream.filename);
+    // const target = path.join(__dirname, `../../../material`, stream.filename);
     // 不存在就创建目录
-    await mkdirp(target);
+    await mkdirp(targetFolder);
 
     const writeStream = fs.createWriteStream(target);
     try {
-      // console.log('target.split()[1]', target.split('image/')[1])
+
       const material = {
         material_link: `http://www.yctang.club:8001/${target.split('image/')[1]}`,
         material_type: typeName,
         material_name: stream.filename
       }
       const result = await this.app.mysql.insert('blog_material', material);
-      console.log('result', result)
+
       insertSuccess = result.affectedRows === 1;
       insertId = result.insertId;
       //异步把文件流 写入
       await awaitWriteStream(stream.pipe(writeStream));
 
-      // const material_link = `http://www.yctang.club:8001/${target.split('image/')[1]}`;
-      // const material_type = typeName;
-      // const material_name = stream.filename;
-
-
-      // this.ctx.body = {
-      //   code: 1,
-      //   // isScuccess: insertSuccess,
-      //   // insertId: insertId
-      // }
     } catch (err) {
       //如果出现错误，关闭管道
       await sendToWormhole(stream);
       // 自定义方法
-      throw new Error('--------------------------------',err);
+      throw new Error('--------------------------------', err);
 
     }
     this.ctx.body = {
@@ -76,6 +72,14 @@ class upLoadMaterial extends Controller {
       isScuccess: insertSuccess,
       insertId: insertId
     }
+  }
+
+  // 素材-删除
+  // 删除链接
+  async deleteBlogMaterial() {
+    let id = this.ctx.params.id;
+    const res = await this.app.mysql.delete('blog_material', { 'id': id })
+    this.ctx.body = { data: res }
   }
 }
 

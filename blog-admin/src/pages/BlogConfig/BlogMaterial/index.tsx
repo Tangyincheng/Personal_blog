@@ -11,9 +11,11 @@ import {
 } from 'antd';
 import { PageContainer } from '@ant-design/pro-layout';
 import { UploadOutlined } from '@ant-design/icons';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 import {
   getBlogMaterial,
+  deleteBlogMaterial,
 } from '@/services/BlogConfig';
 import { getArticleType } from '@/services/article';
 import { materialType } from './data';
@@ -21,6 +23,7 @@ import { articleType } from '../../../components/BlogClassification/data';
 import { ipUrl } from '@/utils/utils';
 
 const { Option } = Select;
+const { confirm } = Modal;
 
 const BlogMaterial: React.FC<{}> = () => {
 
@@ -60,7 +63,28 @@ const BlogMaterial: React.FC<{}> = () => {
       key: 'material_type',
       sorter: (a: materialType, b: materialType) => a.material_type.localeCompare(b.material_type)
     },
+    {
+      title: '操作',
+      render: (item: materialType) => <Button type="primary" onClick={() => delBlogMaterial(item)}>删除</Button>
+    }
   ]
+
+  const delBlogMaterial = (item: materialType) => {
+    confirm({
+      title: '确定要删除此素材?',
+      icon: <ExclamationCircleOutlined />,
+      content: item.material_name,
+      onOk() {
+        deleteBlogMaterial(item.id).then(res => {
+          message.info('删除成功')
+          getMaterialData();
+        })
+      },
+      onCancel() {
+        console.log('Cancel');
+      },
+    });
+  }
 
   const props = {
     name: 'file',
@@ -74,31 +98,59 @@ const BlogMaterial: React.FC<{}> = () => {
       }
       if (info.file.status === 'done') {
         message.success(`${info.file.name} 上传成功！`);
+        setAddVisible(false); // 模态框隐藏
+        getMaterialData();    // 重新获取数据
       } else if (info.file.status === 'error') {
         message.error(`${info.file.name} 上传失败！`);
       }
     },
   };
 
-  useEffect(() => {
-    getBlogMaterial().then(res => {
+  const getMaterialData = () => {
+    getBlogMaterial({currentPage: , pageSize: 10}).then(res => {
       if (res.code == 1) {
         setMaterialData(res.data);
       }
     })
+  }
+
+  useEffect(() => {
+    getMaterialData();
 
     getArticleType().then(res => {
       setArticleType(res.data);
     })
   }, [])
 
+  const paginationProps = {
+    // showSizeChanger: true,//设置每页显示数据条数
+    showQuickJumper: false,
+    showTotal: () => `共100条`,
+    pageSize: 10,
+    total: 100,  //数据的总的条数
+    // onChange: (current: number) => this.changePage(current), //点击当前页码
+    onShowSizeChange: (current: number, pageSize: number) => {//设置每页显示数据条数，current表示当前页码，pageSize表示每页展示数据条数
+      console.log(pageSize);
+      // this.onShowSizeChange(current, pageSize)
+    }
+  }
 
   return (
     <PageContainer>
       <Card title="图片素材" extra={
-        <Button type="primary" icon={<UploadOutlined />} onClick={() => setAddVisible(true)}>添加素材</Button>
+        <Button
+          type="primary"
+          icon={<UploadOutlined />}
+          onClick={() => setAddVisible(true)}
+        >
+          添加素材
+        </Button>
       }>
-        <Table dataSource={materialData} columns={columns} />
+        <Table
+          dataSource={materialData}
+          columns={columns}
+          pagination={paginationProps}
+        />
 
         <Modal
           title="添加素材"
@@ -111,7 +163,7 @@ const BlogMaterial: React.FC<{}> = () => {
             <div>请选择素材分类:</div>
             <Select
               style={{ width: '200px', margin: '10px 0' }}
-              onChange={e => setTypeName(e)}
+              onChange={(e: string) => setTypeName(e)}
             >
               {
                 articleType.map(item => (
@@ -131,7 +183,13 @@ const BlogMaterial: React.FC<{}> = () => {
                   {...props}
                   withCredentials={true}
                 >
-                  <Button type="primary" icon={<UploadOutlined />} onClick={() => setAddVisible(true)}>选择素材</Button>
+                  <Button
+                    type="primary"
+                    icon={<UploadOutlined />}
+                    onClick={() => setAddVisible(true)}
+                  >
+                    选择素材
+                  </Button>
                 </Upload>
               </div>
             }

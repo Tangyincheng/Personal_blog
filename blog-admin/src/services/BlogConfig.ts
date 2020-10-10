@@ -98,3 +98,11 @@ export async function getBlogMaterial() {
     credentials: 'include'
   });
 }
+
+// 素材-删除
+export async function deleteBlogMaterial(params: number) {
+  return request(`${ipUrl}deleteBlogMaterial/${params}`, {
+    credentials: 'include'
+  });
+}
+
