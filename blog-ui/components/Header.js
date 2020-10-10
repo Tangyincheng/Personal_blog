@@ -17,8 +17,18 @@ import '../public/style/components/header.css';
 const Header = () => {
 
   const [navArray, setNavArray] = useState([]);
+  const [iconLink, setIconLink] = useState('');
 
   useEffect(() => {
+    const fetchIconData = async () => {
+      const result = await axios(servicePath.getBlogIcon).then(
+        (res) => {
+          return res.data.data[0].icon_link;
+        }
+      )
+      setIconLink(result);
+    }
+
     const fetchData = async () => {
       const result = await axios(servicePath.getTypeInfo).then(
         (res) => {
@@ -27,6 +37,7 @@ const Header = () => {
       )
       setNavArray(result);
     }
+    fetchIconData();
     fetchData();
   }, [])
 
@@ -40,7 +51,7 @@ const Header = () => {
   }
 
   const MyIcon = createFromIconfontCN({
-    scriptUrl: '//at.alicdn.com/t/font_1950182_4y2sddv63yx.js', // 在 iconfont.cn 上生成
+    scriptUrl: iconLink, // 在 iconfont.cn 上生成
   });
 
   return (

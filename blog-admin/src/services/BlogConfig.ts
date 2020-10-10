@@ -93,8 +93,8 @@ export async function deleteFindLink(params: number) {
 }
 
 // 素材-查询
-export async function getBlogMaterial() {
-  return request(`${ipUrl}getBlogMaterial`, {
+export async function getBlogMaterial(params: { currentPage: number; pageSize: number }) {
+  return request(`${ipUrl}getBlogMaterial/${params.currentPage}/${params.pageSize}`, {
     credentials: 'include'
   });
 }
@@ -106,3 +106,18 @@ export async function deleteBlogMaterial(params: number) {
   });
 }
 
+// icon-查询
+export async function getBlogIcon() {
+  return request(`${ipUrl}getBlogIcon`, {
+    credentials: 'include'
+  });
+}
+
+// icon-修改
+export async function updataBlogIcon(params: { id: number; icon_link: string }) {
+  return request(`${ipUrl}updataBlogIcon`, {
+    method: 'POST',
+    data: params,
+    credentials: 'include'
+  });
+}

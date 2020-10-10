@@ -31,6 +31,9 @@ const BlogMaterial: React.FC<{}> = () => {
   const [articleType, setArticleType] = useState<articleType[]>([]);
   const [typeName, setTypeName] = useState<string>('');
   const [addVisible, setAddVisible] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);  // 当前页 默认第一页
+  const [pageSize, setPageSize] = useState<number>(10);       // 每页数量 默认10
+  const [total_count, setTotal_count] = useState<number>(0);  // 素材总数 默认0
 
   const columns = [
     {
@@ -107,16 +110,27 @@ const BlogMaterial: React.FC<{}> = () => {
   };
 
   const getMaterialData = () => {
-    getBlogMaterial({currentPage: , pageSize: 10}).then(res => {
-      if (res.code == 1) {
+    const params = {
+      currentPage,
+      pageSize
+    }
+    getBlogMaterial(params).then(res => {
+      if (res.code === 1) {
         setMaterialData(res.data);
+        setTotal_count(res.total_count);
       }
     })
   }
 
+  const changePage = (current: number) => {
+    setCurrentPage(current)
+  }
+
   useEffect(() => {
     getMaterialData();
+  }, [currentPage, pageSize])
 
+  useEffect(() => {
     getArticleType().then(res => {
       setArticleType(res.data);
     })
@@ -125,13 +139,12 @@ const BlogMaterial: React.FC<{}> = () => {
   const paginationProps = {
     // showSizeChanger: true,//设置每页显示数据条数
     showQuickJumper: false,
-    showTotal: () => `共100条`,
-    pageSize: 10,
-    total: 100,  //数据的总的条数
-    // onChange: (current: number) => this.changePage(current), //点击当前页码
+    showTotal: () => `共${total_count}条`,
+    pageSize: pageSize,
+    total: total_count,  //数据的总的条数
+    onChange: (current: number) => changePage(current), //点击当前页码
     onShowSizeChange: (current: number, pageSize: number) => {//设置每页显示数据条数，current表示当前页码，pageSize表示每页展示数据条数
-      console.log(pageSize);
-      // this.onShowSizeChange(current, pageSize)
+      setPageSize(pageSize);
     }
   }
 

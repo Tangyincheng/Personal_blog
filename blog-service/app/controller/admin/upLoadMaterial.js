@@ -18,13 +18,26 @@ class upLoadMaterial extends Controller {
     const currentPage = this.ctx.params.currentPage;
     const pageSize = this.ctx.params.pageSize;
 
+    console.log(currentPage, pageSize);
+
+    const totalSQL = 'SELECT COUNT(*) AS material_total FROM blog_material'
+    const total = await this.app.mysql.query(totalSQL);
+
+    console.log(total)
+
     const sql = `SELECT * FROM blog_material ORDER BY id LIMIT ${pageSize} OFFSET ${pageSize * (currentPage - 1)}`
 
     let resType = await this.app.mysql.query(sql);
     for (let i in resType) {
       resType[i].key = resType[i].id;
     }
-    this.ctx.body = { code: 1, data: resType }
+    this.ctx.body = {
+      code: 1,
+      total_count: total[0].material_total,
+      currentPage: parseInt(currentPage),
+      data: resType,
+      total_pages: Math.ceil(total[0].material_total / pageSize)
+    }
   }
 
   // 素材-上传
@@ -75,7 +88,6 @@ class upLoadMaterial extends Controller {
   }
 
   // 素材-删除
-  // 删除链接
   async deleteBlogMaterial() {
     let id = this.ctx.params.id;
     const res = await this.app.mysql.delete('blog_material', { 'id': id })

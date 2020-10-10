@@ -16,7 +16,8 @@ const ArticleType = (props) => {
   const [navArray, setNavArray] = useState([]);
   const [typeNum, setTypeNum] = useState([]);
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [iconLink, setIconLink] = useState('');
 
   // 取消loading状态
   useEffect(() => {
@@ -45,8 +46,17 @@ const ArticleType = (props) => {
       )
       setTypeNum(result)
     }
-    fetchTypeNum()
-    fetchData()
+    const fetchIconData = async () => {
+      const result = await axios(servicePath.getBlogIcon).then(
+        (res) => {
+          return res.data.data[0].icon_link;
+        }
+      )
+      setIconLink(result);
+    }
+    fetchIconData();
+    fetchTypeNum();
+    fetchData();
   }, [])
 
   useEffect(() => {
@@ -73,12 +83,12 @@ const ArticleType = (props) => {
     if (e.key == 0) {
       Router.push('/');
     } else {
-      Router.push('/List?id=' + e.Id + '&loading=' + loading+ '&type=' + e.typeName);
+      Router.push('/List?id=' + e.Id + '&loading=' + loading + '&type=' + e.typeName);
     }
   }
 
   const MyIcon = createFromIconfontCN({
-    scriptUrl: '//at.alicdn.com/t/font_1950182_4y2sddv63yx.js', // 在 iconfont.cn 上生成
+    scriptUrl: iconLink, // 在 iconfont.cn 上生成
   });
 
   return (

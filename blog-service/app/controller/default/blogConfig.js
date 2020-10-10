@@ -28,6 +28,15 @@ class BlogConfigController extends Controller {
     }
     this.ctx.body = { data: resType }
   }
+
+  // blog  icon
+  async getBlogIcon() {
+    let resType = await this.app.mysql.select('blog_icon')
+    for (let i in resType) {
+      resType[i].key = resType[i].id;
+    }
+    this.ctx.body = { code: 1, data: resType }
+  }
 }
 
 module.exports = BlogConfigController;

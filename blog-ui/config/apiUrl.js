@@ -1,5 +1,5 @@
-let ipUrl = 'http://127.0.0.1:7001/default/';
-// let ipUrl = 'http://www.yctang.club:7001/default/';
+// let ipUrl = 'http://127.0.0.1:7001/default/';
+let ipUrl = 'http://www.yctang.club:7001/default/';
 
 let servicePath = {
   getArticleList: ipUrl + 'getArticleList',  //  首页文章列表接口
@@ -11,6 +11,7 @@ let servicePath = {
   getBlogCountNum: ipUrl + 'getBlogCountNum',    // 博客文章信息统计
 
   getBlogEvent: ipUrl + 'getBlogEvent',    // 博客大事件
-  getFrindsLink: ipUrl + 'getFrindsLink'    // 友情链接
+  getFrindsLink: ipUrl + 'getFrindsLink',    // 友情链接
+  getBlogIcon: ipUrl + 'getBlogIcon'    // icon link
 }
 export default servicePath;

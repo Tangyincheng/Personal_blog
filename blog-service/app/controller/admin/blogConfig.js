@@ -97,6 +97,29 @@ class BlogConfigController extends Controller {
     this.ctx.body = { data: res }
   }
 
+  // blog  icon
+  async getBlogIcon() {
+    let resType = await this.app.mysql.select('blog_icon')
+    for (let i in resType) {
+      resType[i].key = resType[i].id;
+    }
+    this.ctx.body = { code: 1, data: resType }
+  }
+
+  // blog  icon
+  async updataBlogIcon() {
+    let tmpBlogIconType = this.ctx.request.body;
+    console.log('--------------', tmpBlogIconType)
+    let result = await this.app.mysql.update('blog_icon', tmpBlogIconType)
+    const insertSuccess = result.affectedRows === 1;
+    const insertId = result.insertId;
+
+    this.ctx.body = {
+      isScuccess: insertSuccess,
+      insertId: insertId
+    }
+  }
+
 }
 
 module.exports = BlogConfigController;
