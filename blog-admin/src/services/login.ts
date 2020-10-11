@@ -8,7 +8,7 @@ export interface LoginParamsType {
 }
 
 export async function AIP_Login(params: LoginParamsType) {
-  return request<API.LoginStateType>(`${ipUrl}checkLogin`, {
+  return request(`${ipUrl}checkLogin`, {
     method: 'POST',
     data: params,
     credentials: 'include'

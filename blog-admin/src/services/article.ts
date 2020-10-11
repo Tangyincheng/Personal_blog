@@ -7,8 +7,8 @@ import { articleType } from './API.d';
 /**
  * 文章列表
  */
-export async function getArticleList() {
-  return request(`${ipUrl}getArticleList`, {
+export async function getArticleList(params: { currentPage: number; pageSize: number }) {
+  return request(`${ipUrl}getArticleList/${params.currentPage}/${params.pageSize}`, {
     credentials: 'include'
   });
 };
@@ -25,7 +25,7 @@ export async function getArticleType() {
 /**
  * 删除文章
  */
-export async function deleteArticle(params: string) {
+export async function deleteArticle(params: number) {
   return request(`${ipUrl}delArticle/${params}`, {
     credentials: 'include'
   });

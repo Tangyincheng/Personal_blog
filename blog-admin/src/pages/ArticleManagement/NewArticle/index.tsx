@@ -15,6 +15,7 @@ import {
 import marked from 'marked';
 import { PageContainer } from '@ant-design/pro-layout';
 import { history } from 'umi';
+import moment from 'moment';
 
 import styles from './index.less';
 import {
@@ -25,7 +26,6 @@ import {
 } from '@/services/article';
 import { typeInfoType } from './data.d';
 import { articleType } from '@/services/API.d';
-import { isLogin } from '@/utils/utils'
 import { isArray } from 'lodash';
 
 const { Option } = Select;
@@ -80,7 +80,7 @@ const NewArticle: React.FC<{}> = (props) => {
       type_id: '',
       title: '',
       introduce: '',
-      addTime: 0,
+      addTime: '',
       article_content: '',
       status: 0,
     };   //传递到接口的参数
@@ -90,8 +90,11 @@ const NewArticle: React.FC<{}> = (props) => {
     dataProps.article_content = articleContent;
     dataProps.introduce = introducemd;
     dataProps.status = status;
-    let datetext = showDate.replace('-', '/'); //把字符串转换成时间戳
-    dataProps.addTime = (new Date(datetext).getTime()) / 1000;
+    // let datetext = showDate.replace('-', '/'); //把字符串转换成时间戳
+    // console.log('new Date(datetext).getTime()', new Date(datetext).getTime())
+    // console.log(moment(showDate).format('YYYY-M-DD'));
+    dataProps.addTime = moment(showDate).format('YYYY-M-DD');
+    // dataProps.addTime = moment(showDate).valueOf() / 1000;
 
     if (articleId === 0) {
       dataProps.view_count = 1;
@@ -125,15 +128,7 @@ const NewArticle: React.FC<{}> = (props) => {
   const getTypeInfo = () => {
     getArticleType().then(
       res => {
-        if (isLogin(res)) {
-          setTypeInfo(res.data)
-        }
-        // if (res.data === "没有登录") {
-        //   sessionStorage.removeItem('openId')
-        //   history.push('/user/login')
-        // } else {
-        //   setTypeInfo(res.data)
-        // }
+        setTypeInfo(res.data)
       })
   }
 
@@ -175,6 +170,8 @@ const NewArticle: React.FC<{}> = (props) => {
     }
   }, [])
 
+  console.log(selectedType)
+
   return (
     <PageContainer>
       <Card>
@@ -191,10 +188,11 @@ const NewArticle: React.FC<{}> = (props) => {
               </Col>
               <Col span={5}>
                 <Select
-                  defaultValue={selectedType}
+                  // defaultValue={selectedType}
                   size="large"
                   onChange={(value) => selectTypeHandler(value)}
                   style={{ width: '100%' }}
+                  value={selectedType}
                 >
                   {
                     isArray(typeInfo) && typeInfo.map((item: typeInfoType, index: number) => {
@@ -248,6 +246,7 @@ const NewArticle: React.FC<{}> = (props) => {
                     placeholder="发布日期"
                     size="large"
                     style={{ width: '100%' }}
+                    value={showDate ? moment(showDate) : null}
                     onChange={(date, dateString: any) => { setShowDate(dateString) }}
                   />
                 </div>

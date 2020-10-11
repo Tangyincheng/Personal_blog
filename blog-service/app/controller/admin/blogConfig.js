@@ -109,7 +109,7 @@ class BlogConfigController extends Controller {
   // blog  icon
   async updataBlogIcon() {
     let tmpBlogIconType = this.ctx.request.body;
-    console.log('--------------', tmpBlogIconType)
+    // console.log('--------------', tmpBlogIconType)
     let result = await this.app.mysql.update('blog_icon', tmpBlogIconType)
     const insertSuccess = result.affectedRows === 1;
     const insertId = result.insertId;

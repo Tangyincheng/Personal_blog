@@ -12,7 +12,6 @@ import { PageContainer } from '@ant-design/pro-layout';
 
 import { getBlogCount } from '@/services/statistics';
 import { blogCountType } from './data.d';
-import { isLogin } from '@/utils/utils';
 
 const Statistics: React.FC<{}> = () => {
 
@@ -24,9 +23,7 @@ const Statistics: React.FC<{}> = () => {
   useEffect(() => {
     getBlogCount().then(
       res => {
-        if (isLogin(res)) {
-          setBlogInfo(res.data[0])
-        }
+        setBlogInfo(res.data[0])
       }
     )
   }, [])

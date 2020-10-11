@@ -9,7 +9,7 @@ import {
   Modal,
   Select
 } from 'antd';
-import { PageContainer } from '@ant-design/pro-layout';
+// import { PageContainer } from '@ant-design/pro-layout';
 import { UploadOutlined } from '@ant-design/icons';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 
@@ -137,7 +137,7 @@ const BlogMaterial: React.FC<{}> = () => {
   }, [])
 
   const paginationProps = {
-    // showSizeChanger: true,//设置每页显示数据条数
+    showSizeChanger: true,//设置每页显示数据条数
     showQuickJumper: false,
     showTotal: () => `共${total_count}条`,
     pageSize: pageSize,
@@ -149,7 +149,7 @@ const BlogMaterial: React.FC<{}> = () => {
   }
 
   return (
-    <PageContainer>
+    // <PageContainer>
       <Card title="图片素材" extra={
         <Button
           type="primary"
@@ -209,7 +209,7 @@ const BlogMaterial: React.FC<{}> = () => {
           </div>
         </Modal>
       </Card>
-    </PageContainer>
+    // </PageContainer>
   )
 }
 

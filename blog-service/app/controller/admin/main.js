@@ -66,19 +66,30 @@ class MainController extends Controller {
 
   //获得文章列表
   async getArticleList() {
+    const currentPage = this.ctx.params.currentPage;
+    const pageSize = this.ctx.params.pageSize;
+
+    const totalSQL = 'SELECT COUNT(*) AS article_total FROM article'
+    const total = await this.app.mysql.query(totalSQL);
 
     let sql = 'SELECT article.id as id,' +
       'article.title as title,' +
       'article.introduce as introduce,' +
       'article.status as status,' +
-      "FROM_UNIXTIME(article.addTime,'%Y-%m-%d' ) as addTime," +
+      "article.addTime as addTime," +
       'article.view_count as view_count ,' +
       'type.typeName as typeName ' +
       'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
-      'ORDER BY article.id DESC '
+      'ORDER BY article.id DESC LIMIT ' + pageSize + ' OFFSET ' + (pageSize * (currentPage - 1))
 
     const resList = await this.app.mysql.query(sql)
-    this.ctx.body = { list: resList }
+    this.ctx.body = {
+      code: 1,
+      total_count: total[0].article_total,
+      currentPage: parseInt(currentPage),
+      total_pages: Math.ceil(total[0].article_total / pageSize),
+      list: resList
+    }
 
   }
 
@@ -97,7 +108,7 @@ class MainController extends Controller {
       'article.title as title,' +
       'article.introduce as introduce,' +
       'article.article_content as article_content,' +
-      "FROM_UNIXTIME(article.addTime,'%Y-%m-%d' ) as addTime," +
+      "article.addTime as addTime," +
       'article.view_count as view_count ,' +
       'type.typeName as typeName ,' +
       'type.id as typeId ' +

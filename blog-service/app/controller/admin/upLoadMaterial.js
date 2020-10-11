@@ -18,12 +18,12 @@ class upLoadMaterial extends Controller {
     const currentPage = this.ctx.params.currentPage;
     const pageSize = this.ctx.params.pageSize;
 
-    console.log(currentPage, pageSize);
+    // console.log(currentPage, pageSize);
 
     const totalSQL = 'SELECT COUNT(*) AS material_total FROM blog_material'
     const total = await this.app.mysql.query(totalSQL);
 
-    console.log(total)
+    // console.log(total)
 
     const sql = `SELECT * FROM blog_material ORDER BY id LIMIT ${pageSize} OFFSET ${pageSize * (currentPage - 1)}`
 

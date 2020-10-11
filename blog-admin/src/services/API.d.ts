@@ -62,7 +62,7 @@ export interface articleType {
   /**
    * 文章添加时间
    */
-  addTime: number;
+  addTime: string;
 
   /**
    * 文章阅读量
@@ -91,7 +91,7 @@ export interface articleStateType {
   insertId: number;
 }
 
-export interface articleType {
+export interface articleTypes {
   /**
    * 分类名称
    */
