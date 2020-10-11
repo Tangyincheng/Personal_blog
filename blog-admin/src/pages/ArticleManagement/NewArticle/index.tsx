@@ -240,7 +240,7 @@ const NewArticle: React.FC<{}> = (props) => {
                   </Col>
                 </Row>
               </Col>
-              <Col span={3} offset={1}>
+              <Col span={4}>
                 <div className={styles.date_select}>
                   <DatePicker
                     placeholder="发布日期"
