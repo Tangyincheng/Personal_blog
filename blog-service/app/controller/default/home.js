@@ -16,10 +16,10 @@ class HomeController extends Controller {
     let sql = 'SELECT article.Id as id ,' +
       'article.title as title ,' +
       'article.introduce as introduce ,' +
-      "FROM_UNIXTIME(article.addTime,'%Y-%m-%d %H:%i:%s' ) as addTime ," +
+      "article.addTime as addTime ," +
       'article.view_count as view_count ,' +
       'type.typeName as typeName ' +
-      'FROM article  LEFT JOIN type ON article.type_id = type.Id WHERE STATUS = 1 ORDER BY addTime DESC LIMIT 10';
+      'FROM article  LEFT JOIN type ON article.type_id = type.Id WHERE STATUS = 1 ORDER BY UNIX_TIMESTAMP(addTime) DESC, view_count DESC LIMIT 10';
 
     // let sql = 'SELECT * FROM article';
 
@@ -35,7 +35,7 @@ class HomeController extends Controller {
       'article.title as title,' +
       'article.introduce as introduce,' +
       'article.article_content as article_content,' +
-      "FROM_UNIXTIME(article.addTime,'%Y-%m-%d %H:%i:%s' ) as addTime," +
+      "article.addTime as addTime," +
       'article.view_count as view_count ,' +
       'type.typeName as typeName ,' +
       'type.id as typeId ' +
@@ -61,7 +61,7 @@ class HomeController extends Controller {
     let sql = 'SELECT article.id as id,' +
       'article.title as title,' +
       'article.introduce as introduce,' +
-      "FROM_UNIXTIME(article.addTime,'%Y-%m-%d %H:%i:%s' ) as addTime," +
+      "article.addTime as addTime," +
       'article.view_count as view_count ,' +
       'type.typeName as typeName ' +
       'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
