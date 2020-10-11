@@ -88,6 +88,7 @@ iframe{
 }
 .ant-anchor-wrapper{
   padding: 5px !important;
+  margin-left: 0;
 }
 
 .detailed-nav{
