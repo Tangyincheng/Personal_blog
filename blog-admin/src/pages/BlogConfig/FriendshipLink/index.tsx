@@ -22,6 +22,7 @@ import {
   deleteFindLink,
   updateFrindLink
 } from '@/services/BlogConfig';
+import { isLogin } from '@/utils/utils';
 
 import { friendshipLink } from './data';
 
@@ -74,8 +75,10 @@ const FriendshipLink: React.FC<{}> = () => {
 
   const getFrindsLinkDataList = () => {
     getFrindsLinkData().then(res => {
-      const { data } = res;
-      setBlogEventData(data);
+      if (isLogin(res)) {
+        const { data } = res;
+        setBlogEventData(data);
+      }
     })
   }
 

@@ -15,6 +15,7 @@ import {
 
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-layout';
+import { history } from 'umi';
 
 import {
   getBlogEventData,
@@ -22,6 +23,7 @@ import {
   deleteBlogEvent,
   updateBlogEvent
 } from '@/services/BlogConfig';
+import { isLogin } from '@/utils/utils';
 
 import { blogEventType } from './data';
 
@@ -102,8 +104,10 @@ const BlogEvent: React.FC<{}> = () => {
   // 获取事件列表
   const blogEventDataList = () => {
     getBlogEventData().then(res => {
-      let { data } = res;
-      setBlogEventData(data)
+      if (isLogin(res)) {
+        let { data } = res;
+        setBlogEventData(data)
+      }
     })
   }
 

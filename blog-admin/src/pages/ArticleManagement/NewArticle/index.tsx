@@ -27,6 +27,7 @@ import {
 import { typeInfoType } from './data.d';
 import { articleType } from '@/services/API.d';
 import { isArray } from 'lodash';
+import { isLogin } from '@/utils/utils';
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -128,7 +129,10 @@ const NewArticle: React.FC<{}> = (props) => {
   const getTypeInfo = () => {
     getArticleType().then(
       res => {
-        setTypeInfo(res.data)
+        if (isLogin(res)) {
+          setTypeInfo(res.data)
+        }
+
       })
   }
 

@@ -15,6 +15,7 @@ import { history } from 'umi';
 
 import { getArticleList, deleteArticle } from '@/services/article';
 import { dataType } from './data.d';
+import { isLogin } from '@/utils/utils';
 
 const { confirm } = Modal;
 
@@ -99,9 +100,9 @@ const ArticleList: React.FC<{}> = () => {
       currentPage,
       pageSize
     }
-    console.log(params)
+    // console.log(params)
     getArticleList(params).then(res => {
-      if (res.code === 1) {
+      if (isLogin(res)) {
         let data = res.list;
         for (let i in data) {
           data[i].key = data[i].id

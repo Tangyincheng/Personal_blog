@@ -20,7 +20,7 @@ import {
 import { getArticleType } from '@/services/article';
 import { materialType } from './data';
 import { articleType } from '../../../components/BlogClassification/data';
-import { ipUrl } from '@/utils/utils';
+import { ipUrl, isLogin } from '@/utils/utils';
 
 const { Option } = Select;
 const { confirm } = Modal;
@@ -132,7 +132,9 @@ const BlogMaterial: React.FC<{}> = () => {
 
   useEffect(() => {
     getArticleType().then(res => {
-      setArticleType(res.data);
+      if (isLogin(res)) {
+        setArticleType(res.data);
+      }
     })
   }, [])
 
@@ -150,65 +152,65 @@ const BlogMaterial: React.FC<{}> = () => {
 
   return (
     // <PageContainer>
-      <Card title="图片素材" extra={
-        <Button
-          type="primary"
-          icon={<UploadOutlined />}
-          onClick={() => setAddVisible(true)}
-        >
-          添加素材
+    <Card title="图片素材" extra={
+      <Button
+        type="primary"
+        icon={<UploadOutlined />}
+        onClick={() => setAddVisible(true)}
+      >
+        添加素材
         </Button>
-      }>
-        <Table
-          dataSource={materialData}
-          columns={columns}
-          pagination={paginationProps}
-        />
+    }>
+      <Table
+        dataSource={materialData}
+        columns={columns}
+        pagination={paginationProps}
+      />
 
-        <Modal
-          title="添加素材"
-          visible={addVisible}
-          // onOk={}
-          onCancel={() => setAddVisible(false)}
-          footer={null}
-        >
-          <div>
-            <div>请选择素材分类:</div>
-            <Select
-              style={{ width: '200px', margin: '10px 0' }}
-              onChange={(e: string) => setTypeName(e)}
-            >
-              {
-                articleType.map(item => (
-                  <Option
-                    value={item.subTypeName}
-                    key={item.Id}
-                  >
-                    {item.typeName}
-                  </Option>
-                ))
-              }
-            </Select>
+      <Modal
+        title="添加素材"
+        visible={addVisible}
+        // onOk={}
+        onCancel={() => setAddVisible(false)}
+        footer={null}
+      >
+        <div>
+          <div>请选择素材分类:</div>
+          <Select
+            style={{ width: '200px', margin: '10px 0' }}
+            onChange={(e: string) => setTypeName(e)}
+          >
             {
-              typeName &&
-              <div>
-                <Upload
-                  {...props}
-                  withCredentials={true}
+              articleType.map(item => (
+                <Option
+                  value={item.subTypeName}
+                  key={item.Id}
                 >
-                  <Button
-                    type="primary"
-                    icon={<UploadOutlined />}
-                    onClick={() => setAddVisible(true)}
-                  >
-                    选择素材
-                  </Button>
-                </Upload>
-              </div>
+                  {item.typeName}
+                </Option>
+              ))
             }
-          </div>
-        </Modal>
-      </Card>
+          </Select>
+          {
+            typeName &&
+            <div>
+              <Upload
+                {...props}
+                withCredentials={true}
+              >
+                <Button
+                  type="primary"
+                  icon={<UploadOutlined />}
+                  onClick={() => setAddVisible(true)}
+                >
+                  选择素材
+                  </Button>
+              </Upload>
+            </div>
+          }
+        </div>
+      </Modal>
+    </Card>
     // </PageContainer>
   )
 }

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Table, Button, Modal, Form, Input, message } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { history } from 'umi';
 
 import { getArticleType } from '@/services/article';
 import { articleType, newType } from './data';
 import { addArticleType, deleteArticle, upDateType } from '@/services/BlogConfig';
+import { isLogin } from '@/utils/utils';
 
 const { confirm } = Modal;
 
@@ -120,7 +122,9 @@ const BlogClassification: React.FC<{}> = () => {
 
   useEffect(() => {
     getArticleType().then(res => {
-      setArticleType(res.data);
+      if (isLogin(res)) {
+        setArticleType(res.data);
+      }
     })
   }, [])
 
