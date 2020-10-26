@@ -116,7 +116,7 @@ const NewArticle: React.FC<{}> = (props) => {
         res => {
           if (res.isScuccess) {
             message.success('文章保存成功')
-            history.push('/article/articleList')  // 跳转至文章列表
+            // history.push('/article/articleList')  // 跳转至文章列表
           } else {
             message.error('保存失败');
           }

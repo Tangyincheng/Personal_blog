@@ -40,6 +40,7 @@ const myList = (list) => {
         <meta name="description" content="首页 | yctang-The Future Depends on You" />
         <meta name="robots" content="all" />
         <meta name="author" content="yctang" />
+        <meta name="google-site-verification" content="b7XdkZDn_li_SpxcgFM9oQLFUhVjXw6fqu_r84jo9wY" />
         <link rel="icon" href="../static/favicon.ico" mce_href="../static/favicon.ico" type="image/x-icon" />
       </Head>
       <Affix offsetTop={top}>
