@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import '../public/style/components/friendsLink.css';
+import '../public/style/components/blogEvent.css';
 import servicePath from '../config/apiUrl';
 
 const FriendsLink = () => {
@@ -24,6 +25,7 @@ const FriendsLink = () => {
   return (
     <div className="comm-box friendsLink-div">
       <div className="friendsLink-header"><strong>友情链接</strong></div>
+      <div className="line"></div>
       <div className="friendsLink-content">
         {
           frindsLink.map(item => {

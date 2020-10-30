@@ -7,7 +7,27 @@
   font-weight: bold;
   line-height: 30px;
   /* padding-left: 6px; */
-  border-bottom: 1px solid #007ca3;
+  /* border-bottom: 1px solid #007ca3; */
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  /* background-color: teal; */
+}
+
+.line::before {
+  content: '';
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  background-color: teal;
+  left: -100%;
+  top: 0;
+  animation: lineMove 10s infinite ease-in-out;
 }
 
 .blogEvent-content{
@@ -20,4 +40,27 @@
 }
 .ant-timeline-item-last{
   padding: 0 !important;
+}
+
+@keyframes lineMove {
+  0% {
+    left: -100%;
+  }
+
+  25% {
+    left: 0;
+  }
+
+  50% {
+    left: 100%;
+  }
+
+  75% {
+    left: 0;
+  }
+
+  100% {
+    left: -100%;
+  }
+
 }
