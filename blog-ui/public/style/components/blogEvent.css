@@ -27,7 +27,8 @@
   background-color: teal;
   left: -100%;
   top: 0;
-  animation: lineMove 10s infinite ease-in-out;
+  animation: eventLineMove 10s infinite ease-in-out;
+
 }
 
 .blogEvent-content{
@@ -42,7 +43,7 @@
   padding: 0 !important;
 }
 
-@keyframes lineMove {
+@keyframes eventLineMove {
   0% {
     left: -100%;
   }

@@ -8,9 +8,24 @@
 
 }
 .author-logo{
-  border: 2px solid #cbcccf;
+  position: relative;
   /* box-shadow: 10px 10px 10px 10px #999; */
+  
 }
+
+.author-logo::after{
+  content: '';
+  width: 101%;
+  height: 101%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid #007ca3;
+  transform: rotate(45deg);
+  border-radius: 50%;
+  animation: logoMove 5s cubic-bezier(.25, .45, .75, .55) 1;
+}
+
 .author-introduction{
   font-size:.8rem;
   color: #999;
@@ -63,20 +78,67 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  clip-path: circle(22px at 0% 50%);
-  animation: move 5s infinite;
+  clip-path: circle(22px at 100% 50%);
+  animation: autherMove 5s infinite;
 }
 
-@keyframes move{
+@keyframes autherMove{
   0% {
-    clip-path: circle(22px at 0% 50%);
-  }
-
-  50% {
     clip-path: circle(22px at 100% 50%);
   }
 
-  100% {
+  50% {
     clip-path: circle(22px at 0% 50%);
+  }
+
+  100% {
+    clip-path: circle(22px at 100% 50%);
+  }
+}
+
+@keyframes logoMove {
+  0% {
+    clip-path: polygon(0% 0%,
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        50% 50%);
+  }
+
+  25% {
+    clip-path: polygon(0% 0%,
+        100% 0%,
+        100% 0%,
+        100% 0%,
+        100% 0%,
+        50% 50%);
+  }
+
+  50% {
+    clip-path: polygon(0% 0%,
+        100% 0%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        50% 50%);
+  }
+
+  75% {
+    clip-path: polygon(0% 0%,
+        100% 0%,
+        100% 100%,
+        0% 100%,
+        0% 100%,
+        50% 50%);
+  }
+
+  100% {
+    clip-path: polygon(0% 0%,
+        100% 0%,
+        100% 100%,
+        0% 100%,
+        0% 0%,
+        50% 50%);
   }
 }

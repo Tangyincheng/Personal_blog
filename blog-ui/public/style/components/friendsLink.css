@@ -16,3 +16,45 @@
   margin-top: 10px;
   /* padding-left: 6px; */
 }
+
+.lineMove {
+  width: 100%;
+  height: 1px;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  /* background-color: teal; */
+}
+
+.lineMove::before {
+  content: '';
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  background-color: teal;
+  left: 100%;
+  top: 0;
+  animation: linkLineMove 10s infinite ease-in-out 2s;
+}
+@keyframes linkLineMove {
+  0% {
+    left: 100%;
+  }
+
+  25% {
+    left: 0;
+  }
+
+  50% {
+    left: -100%;
+  }
+
+  75% {
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+  }
+
+}

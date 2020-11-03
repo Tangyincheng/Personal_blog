@@ -73,10 +73,10 @@
   -webkit-background-clip: text;
   color: transparent;
   clip-path: circle(22px at 0% 50%);
-  animation: move 5s infinite;
+  animation: headerMove 5s infinite;
 }
 
-@keyframes move{
+@keyframes headerMove{
   0% {
     clip-path: circle(22px at 0% 50%);
   }
