@@ -61,7 +61,7 @@ const myList = (list) => {
             itemLayout="vertical"
             dataSource={mylist}
             renderItem={(item, index) => (
-              <List.Item key={index}>
+              <List.Item key={index} className="article-item">
                 <Spin tip="加载中..." spinning={loading}>
                   <div className="list-title" onClick={() => setLoading(true)}>
                     <Link href={{ pathname: '/detailed', query: { id: item.id } }}>
