@@ -62,7 +62,7 @@
   font-style: oblique;
   position: relative;
 }
-.header-font::after{
+/* .header-font::after{
   content: 'The Future Depends on You';
   position: absolute;
   left: 0;
@@ -74,9 +74,9 @@
   color: transparent;
   clip-path: circle(22px at 0% 50%);
   animation: headerMove 5s infinite;
-}
+} */
 
-@keyframes headerMove{
+/* @keyframes headerMove{
   0% {
     clip-path: circle(22px at 0% 50%);
   }
@@ -88,4 +88,4 @@
   100% {
     clip-path: circle(22px at 0% 50%);
   }
-}
+} */

@@ -7,7 +7,7 @@
   font-weight: bold;
   line-height: 30px;
   /* padding-left: 6px; */
-  /* border-bottom: 1px solid #007ca3; */
+  border-bottom: 1px solid #007ca3;
 }
 
 .line {
@@ -19,7 +19,7 @@
   /* background-color: teal; */
 }
 
-.line::before {
+/* .line::before {
   content: '';
   width: 100%;
   height: 2px;
@@ -29,7 +29,7 @@
   top: 0;
   animation: eventLineMove 10s infinite ease-in-out;
 
-}
+} */
 
 .blogEvent-content{
   margin-top: 10px;
