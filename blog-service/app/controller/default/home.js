@@ -70,6 +70,21 @@ class HomeController extends Controller {
     this.ctx.body = { data: result };
   }
 
+  //根据类别ID获得置顶文章列表
+  async getListTopById(){
+    let id = this.ctx.params.id;
+    let sql = 'SELECT article.id as id,' +
+      'article.title as title,' +
+      'article.introduce as introduce,' +
+      "article.addTime as addTime," +
+      'article.view_count as view_count ,' +
+      'type.typeName as typeName ' +
+      'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
+      'WHERE STATUS = 1 AND TOP = 1 AND type_id=' + id + '  ORDER BY addTime DESC'
+    const result = await this.app.mysql.query(sql);
+    this.ctx.body = { data: result };
+  }
+
   // 更新文章访问量
   async updateArticleView() {
     let data = this.ctx.request.body;

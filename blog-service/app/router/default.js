@@ -9,6 +9,7 @@ module.exports = app => {
   router.get('/default/getArticleById/:id', controller.default.home.getArticleById);
   router.get('/default/getTypeInfo', controller.default.home.getTypeInfo);
   router.get('/default/getListById/:id', controller.default.home.getListById);
+  router.get('/default/getListTopById/:id', controller.default.home.getListTopById);
   router.get('/default/getTypeNum', controller.default.home.getTypeNum);
   router.get('/default/getBlogCountNum', controller.default.home.getBlogCountNum);
   router.post('/default/updateArticleView', controller.default.home.updateArticleView);

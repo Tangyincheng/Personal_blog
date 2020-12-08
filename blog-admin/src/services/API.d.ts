@@ -78,6 +78,11 @@ export interface articleType {
    * 文章状态
    */
   status: number;
+
+  /**
+   * 是否置顶
+   */
+  top: number
 };
 
 export interface articleStateType {
