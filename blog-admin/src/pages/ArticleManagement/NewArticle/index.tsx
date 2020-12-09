@@ -157,8 +157,7 @@ const NewArticle: React.FC<{}> = (props) => {
   }
 
   const onIsTop = (value:any)=>{
-    console.log('value', value.target.checked)
-    setIsTop(1)
+    setIsTop(value.target.value)
   }
 
   useEffect(() => {
@@ -182,7 +181,7 @@ const NewArticle: React.FC<{}> = (props) => {
         });
     }
   }, [])
-  console.log(isTop)
+
   return (
     <PageContainer>
       <Card>
@@ -264,7 +263,8 @@ const NewArticle: React.FC<{}> = (props) => {
                 <div className={styles.isTop}>
                   <span>是否置顶：</span>
                   <Radio.Group onChange={onIsTop} value={isTop}>
-                    <Radio value={1}>置顶</Radio>
+                    <Radio value={1}>是</Radio>
+                    <Radio value={0}>否</Radio>
                   </Radio.Group>
                 </div>
               </Col>

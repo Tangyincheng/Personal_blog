@@ -4,6 +4,31 @@
   padding  : 0 0.5rem;
 }
 
+.list-top {
+  width: 10px;
+  display: inline;
+  font-size    : 8px;
+  color        : red;
+  padding      : 2px;
+  margin-right : 4px;
+  border       : 1px solid red;
+  border-radius: 4px;
+}
+
+.split-line{
+  height: .3rem;
+  width: 100%;
+  background-color: #fff;
+}
+
+.list-content{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .list-context {
   color  : #777;
   padding: .5rem;
@@ -69,4 +94,9 @@ code {
 
 .article-item:nth-child(even) {
   background-color: rgba(2, 119, 79, 0.2);
+}
+
+.article-top-item {
+  background-color: rgba(237, 221, 158, 0.4);
+  /* border-bottom: 1px solid rgb(45, 139, 92) !important ; */
 }
