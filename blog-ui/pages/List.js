@@ -50,7 +50,7 @@ const myList = (list) => {
     axios(servicePath.getListTopById + typeId).then(
       res => settoplist(res.data.data)
     )
-  }, [])
+  }, [typeId])
 
   return (
     < div className="container" >
@@ -104,7 +104,7 @@ const myList = (list) => {
                   </List.Item>
                 )}
               />
-              <div className="split-line"></div>
+              {/* <div className="split-line"></div> */}
             </div>
           }
 

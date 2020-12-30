@@ -1,12 +1,15 @@
 .list-title {
-  font-size: 1.3rem;
-  color    : #007ca3;
-  padding  : 0 0.5rem;
+  font-size  : 1.3rem;
+  color      : #007ca3;
+  padding    : 0 0.5rem;
+  display    : flex;
+  align-items: center;
 }
 
 .list-top {
-  width: 10px;
-  display: inline;
+  width        : 32px;
+  height       : 24px;
+  display      : inline;
   font-size    : 8px;
   color        : red;
   padding      : 2px;
@@ -15,18 +18,30 @@
   border-radius: 4px;
 }
 
-.split-line{
-  height: .3rem;
-  width: 100%;
+.split-line {
+  height          : .3rem;
+  width           : 100%;
   background-color: #fff;
 }
 
-.list-content{
-  width: 100%;
-  height: 50px;
-  display: flex;
+.list-content {
+  width          : 100%;
+  height         : 50px;
+  display        : flex;
   justify-content: center;
-  align-items: center;
+  align-items    : center;
+}
+
+.ant-pagination-item-active a {
+  color: rgb(0, 124, 163);
+}
+
+.ant-pagination-item-active {
+  border-color: rgb(0, 124, 163) !important;
+}
+
+.ant-pagination-item-active:hover {
+  border-color: rgb(0, 124, 163) !important;
 }
 
 .list-context {
@@ -88,6 +103,12 @@ code {
   color: 'red';
 }
 
+.article-item,
+.article-top-item {
+  border-radius: 10px;
+  margin       : 4px 0;
+}
+
 .article-item:nth-child(odd) {
   background-color: rgba(46, 98, 205, 0.1);
 }
@@ -96,7 +117,10 @@ code {
   background-color: rgba(2, 119, 79, 0.2);
 }
 
+.article-item:last-child {
+  margin: 4px 0 0 0;
+}
+
 .article-top-item {
   background-color: rgba(237, 221, 158, 0.4);
-  /* border-bottom: 1px solid rgb(45, 139, 92) !important ; */
 }
