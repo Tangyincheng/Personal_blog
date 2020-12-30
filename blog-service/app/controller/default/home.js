@@ -57,6 +57,39 @@ class HomeController extends Controller {
 
   //根据类别ID获得文章列表
   async getListById() {
+    const currentPage = this.ctx.params.currentPage;
+    const pageSize = this.ctx.params.pageSize;
+    let id = this.ctx.params.id;
+    if(!currentPage || !pageSize || !id){
+      this.ctx.body = { 
+        code:0,
+        msg: '参数未传完整！'
+      };
+      return
+    }
+
+    const totalSQL = 'SELECT COUNT(*) AS articleByTypeTotal FROM article WHERE STATUS = 1 AND TOP = 0 AND type_id = '+ id
+    const total = await this.app.mysql.query(totalSQL);
+    let sql = 'SELECT article.id as id,' +
+      'article.title as title,' +
+      'article.introduce as introduce,' +
+      "article.addTime as addTime," +
+      'article.view_count as view_count ,' +
+      'type.typeName as typeName ' +
+      'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
+      'WHERE STATUS = 1 AND TOP = 0 AND type_id=' + id + '  ORDER BY addTime DESC LIMIT ' + pageSize + ' OFFSET ' + (pageSize * (currentPage - 1))
+    const result = await this.app.mysql.query(sql);
+    this.ctx.body = { 
+      code:1,
+      total_count: total[0].articleByTypeTotal,
+      currentPage: parseInt(currentPage),
+      total_pages: Math.ceil(total[0].articleByTypeTotal / pageSize),
+      data: result
+    };
+  }
+
+  //根据类别ID获得置顶文章列表
+  async getListTopById(){
     let id = this.ctx.params.id;
     let sql = 'SELECT article.id as id,' +
       'article.title as title,' +
@@ -65,7 +98,7 @@ class HomeController extends Controller {
       'article.view_count as view_count ,' +
       'type.typeName as typeName ' +
       'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
-      'WHERE STATUS = 1 AND type_id=' + id + '  ORDER BY addTime DESC'
+      'WHERE STATUS = 1 AND TOP = 1 AND type_id=' + id + '  ORDER BY addTime DESC'
     const result = await this.app.mysql.query(sql);
     this.ctx.body = { data: result };
   }

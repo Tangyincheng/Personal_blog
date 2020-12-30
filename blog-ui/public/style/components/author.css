@@ -1,53 +1,148 @@
-.author-div{
+.author-div {
   text-align: center;
-  padding: 1rem;
+  padding   : 1rem;
 
 }
-.author-div div{
+
+.author-div div {
   margin-bottom: 1rem;
 
 }
-.author-logo{
-  border: 2px solid #cbcccf;
+
+.author-logo {
+  position     : relative;
   /* box-shadow: 10px 10px 10px 10px #999; */
-}
-.author-introduction{
-  font-size:.8rem;
-  color: #999;
-  position: relative;
-}
-.account, .accountweixin{
-  background-color: #999;
-  margin-left: .5rem;
-  margin-right: .5rem;
+
 }
 
-.author-img{
-  width: 50px;
+.author-logo::after {
+  content      : '';
+  width        : 100%;
+  height       : 100%;
+  position     : absolute;
+  top          : 0;
+  left         : 0;
+  border       : 2px solid rgba(0, 124, 163, .8);
+  transform    : rotate(45deg);
+  border-radius: 50%;
+  animation    : logoMove 5s cubic-bezier(.25, .45, .75, .55) 1;
+}
+
+.author-introduction {
+  font-size: .8rem;
+  color    : #999;
+  position : relative;
+}
+
+.account,
+.accountweixin {
+  background-color: #999;
+  margin-left     : .5rem;
+  margin-right    : .5rem;
+}
+
+.author-img {
+  width : 50px;
   height: 50px;
 }
 
-.weixinImg{
-  display: none;
-  width: 120px;
-  height: 120px;
+.weixinImg {
+  display : none;
+  width   : 120px;
+  height  : 120px;
   position: absolute;
-  bottom: 16px;
-  right: 35px;
+  bottom  : 16px;
+  right   : 35px;
 }
 
-.weixinImgContent{
-  width: 100%;
+.weixinImgContent {
+  width : 100%;
   height: 100%;
 }
 
-.accountweixin:hover +.weixinImg{
+.accountweixin:hover+.weixinImg {
   display: block;
   z-index: 999;
 }
 
-.author-font{
+.author-font {
   /* font-family: "方正姚体"; */
-  font-size: 14px;
+  font-size : 14px;
   font-style: oblique;
+  position  : relative;
+}
+
+.author-font::after {
+  content : 'The Future Depends on You';
+  position: absolute;
+  left    : 0;
+  top     : 0;
+  background-image: linear-gradient(to right,
+      #c23616, #192a56, #00d2d3, yellow, #6d214f, #2e86de, #4cd137, #e84118);
+  background-clip        : text;
+  -webkit-background-clip: text;
+  color                  : transparent;
+  clip-path              : circle(22px at 100% 50%);
+  animation              : autherMove 5s infinite;
+}
+
+@keyframes autherMove {
+  0% {
+    clip-path: circle(22px at 100% 50%);
+  }
+
+  50% {
+    clip-path: circle(22px at 0% 50%);
+  }
+
+  100% {
+    clip-path: circle(22px at 100% 50%);
+  }
+}
+
+@keyframes logoMove {
+  0% {
+    clip-path: polygon(0% 0%,
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        50% 50%);
+  }
+
+  25% {
+    clip-path: polygon(0% 0%,
+        100% 0%,
+        100% 0%,
+        100% 0%,
+        100% 0%,
+        50% 50%);
+  }
+
+  50% {
+    clip-path: polygon(0% 0%,
+        100% 0%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        50% 50%);
+  }
+
+  75% {
+    clip-path: polygon(0% 0%,
+        100% 0%,
+        100% 100%,
+        0% 100%,
+        0% 100%,
+        50% 50%);
+  }
+
+  100% {
+    clip-path: polygon(0% 0%,
+        100% 0%,
+        100% 100%,
+        0% 100%,
+        0% 0%,
+        50% 50%);
+  }
 }

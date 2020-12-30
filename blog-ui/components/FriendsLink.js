@@ -24,6 +24,7 @@ const FriendsLink = () => {
   return (
     <div className="comm-box friendsLink-div">
       <div className="friendsLink-header"><strong>友情链接</strong></div>
+      <div className="lineMove"></div>
       <div className="friendsLink-content">
         {
           frindsLink.map(item => {

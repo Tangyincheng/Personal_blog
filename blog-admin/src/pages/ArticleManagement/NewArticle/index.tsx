@@ -11,6 +11,7 @@ import {
   DatePicker,
   message,
   Card,
+  Radio
 } from 'antd';
 import marked from 'marked';
 import { PageContainer } from '@ant-design/pro-layout';
@@ -44,6 +45,7 @@ const NewArticle: React.FC<{}> = (props) => {
   // const [updateDate, setUpdateDate] = useState() //修改日志的日期
   const [typeInfo, setTypeInfo] = useState([]) // 文章类别信息
   const [selectedType, setSelectedType] = useState("请选择文章类别") //选择的文章类别
+  const [isTop, setIsTop] = useState(0) //文章是否置顶
 
   const renderer = new marked.Renderer();
 
@@ -84,6 +86,7 @@ const NewArticle: React.FC<{}> = (props) => {
       addTime: '',
       article_content: '',
       status: 0,
+      top: 0
     };   //传递到接口的参数
 
     dataProps.type_id = selectedType;
@@ -91,6 +94,7 @@ const NewArticle: React.FC<{}> = (props) => {
     dataProps.article_content = articleContent;
     dataProps.introduce = introducemd;
     dataProps.status = status;
+    dataProps.top = isTop;
     // let datetext = showDate.replace('-', '/'); //把字符串转换成时间戳
     // console.log('new Date(datetext).getTime()', new Date(datetext).getTime())
     // console.log(moment(showDate).format('YYYY-M-DD'));
@@ -116,7 +120,7 @@ const NewArticle: React.FC<{}> = (props) => {
         res => {
           if (res.isScuccess) {
             message.success('文章保存成功')
-            history.push('/article/articleList')  // 跳转至文章列表
+            // history.push('/article/articleList')  // 跳转至文章列表
           } else {
             message.error('保存失败');
           }
@@ -132,7 +136,6 @@ const NewArticle: React.FC<{}> = (props) => {
         if (isLogin(res)) {
           setTypeInfo(res.data)
         }
-
       })
   }
 
@@ -153,6 +156,10 @@ const NewArticle: React.FC<{}> = (props) => {
     setIntroducehtml(html)
   }
 
+  const onIsTop = (value:any)=>{
+    setIsTop(value.target.value)
+  }
+
   useEffect(() => {
     getTypeInfo()
     // 获取文章id
@@ -170,11 +177,10 @@ const NewArticle: React.FC<{}> = (props) => {
           setIntroducehtml(tmpInt)
           setShowDate(res.data[0].addTime)
           setSelectedType(res.data[0].typeId)
+          setIsTop(res.data[0].top)
         });
     }
   }, [])
-
-  console.log(selectedType)
 
   return (
     <PageContainer>
@@ -253,6 +259,13 @@ const NewArticle: React.FC<{}> = (props) => {
                     value={showDate ? moment(showDate) : null}
                     onChange={(date, dateString: any) => { setShowDate(dateString) }}
                   />
+                </div>
+                <div className={styles.isTop}>
+                  <span>是否置顶：</span>
+                  <Radio.Group onChange={onIsTop} value={isTop}>
+                    <Radio value={1}>是</Radio>
+                    <Radio value={0}>否</Radio>
+                  </Radio.Group>
                 </div>
               </Col>
             </Row>

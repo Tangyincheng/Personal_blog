@@ -24,7 +24,8 @@ const BlogEvent = () => {
 
   return (
     <div className="comm-box blogEvent-div">
-      <div className="blogEvent-header"><strong>博客大事件</strong></div>
+      <div className="blogEvent-header"><strong>博客成长日记</strong></div>
+      <div className="line"></div>
       <div className="blogEvent-content">
         <Timeline>
           {

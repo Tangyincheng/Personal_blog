@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Row, Col, List, Affix, Breadcrumb, Spin } from 'antd';
+import { Row, Col, List, Affix, Breadcrumb, Spin, Pagination } from 'antd';
 import { CalendarOutlined, FireOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import classNames from 'classnames';
@@ -18,18 +18,39 @@ import servicePath from '../config/apiUrl';
 
 const myList = (list) => {
 
-  const { type: typeName, loading: loadingProps } = list.router.query;
+  const { type: typeName, loading: loadingProps, id: typeId } = list.router.query;
   const top = 0;
   const advert = 54;
+  const pageSize = 10;
+  const [toplist, settoplist] = useState([]);
   const [mylist, setMylist] = useState();
   const [loading, setLoading] = useState(false)
+  const [total, setTotal] = useState(1);
 
   // const loadingProps = list.router.query.loading;
   const propleNum = classNames({
     'propleFire': true
   })
 
-  useEffect(() => { setMylist(list.data) })
+  const onChange = (value) => {
+    axios(`${servicePath.getListById + typeId}/${value}/${pageSize}`).then(
+      res => {
+        setMylist(res.data.data);
+        setTotal(list.total_count);
+      }
+    )
+  }
+
+  useEffect(() => {
+    setMylist(list.data);
+    setTotal(list.total_count);
+  }, [list.data])
+
+  useEffect(() => {
+    axios(servicePath.getListTopById + typeId).then(
+      res => settoplist(res.data.data)
+    )
+  }, [typeId])
 
   return (
     < div className="container" >
@@ -40,6 +61,7 @@ const myList = (list) => {
         <meta name="description" content="首页 | yctang-The Future Depends on You" />
         <meta name="robots" content="all" />
         <meta name="author" content="yctang" />
+        <meta name="google-site-verification" content="b7XdkZDn_li_SpxcgFM9oQLFUhVjXw6fqu_r84jo9wY" />
         <link rel="icon" href="../static/favicon.ico" mce_href="../static/favicon.ico" type="image/x-icon" />
       </Head>
       <Affix offsetTop={top}>
@@ -56,11 +78,41 @@ const myList = (list) => {
               {/* <Breadcrumb.Item>{}</Breadcrumb.Item> */}
             </Breadcrumb>
           </div>
+          {/* 置顶列表 */}
+          {
+            toplist.length > 0 &&
+            <div>
+              <List
+                itemLayout="vertical"
+                dataSource={toplist}
+                renderItem={(item, index) => (
+                  <List.Item key={index} className="article-top-item">
+                    <Spin tip="加载中..." spinning={loading}>
+                      <div className="list-title" onClick={() => setLoading(true)}>
+                        <div className="list-top">置顶</div>
+                        <Link href={{ pathname: '/detailed', query: { id: item.id } }}>
+                          <a style={{ color: '#007ca3' }}>{item.title}</a>
+                        </Link>
+                      </div>
+                      <div className="list-icon">
+                        <span><CalendarOutlined />{item.addTime.split(' ')[0]}</span>
+                        <span><CalendarOutlined />{item.typeName}</span>
+                        <span className={propleNum}><FireOutlined />{item.view_count}人</span>
+                      </div>
+                      <div className="list-context">{item.introduce}</div>
+                    </Spin>
+                  </List.Item>
+                )}
+              />
+              {/* <div className="split-line"></div> */}
+            </div>
+          }
+
           <List
             itemLayout="vertical"
             dataSource={mylist}
             renderItem={(item, index) => (
-              <List.Item key={index}>
+              <List.Item key={index} className="article-item">
                 <Spin tip="加载中..." spinning={loading}>
                   <div className="list-title" onClick={() => setLoading(true)}>
                     <Link href={{ pathname: '/detailed', query: { id: item.id } }}>
@@ -82,6 +134,16 @@ const myList = (list) => {
               </List.Item>
             )}
           />
+          {
+            total > 10 &&
+            <div className="list-content">
+              <Pagination
+                defaultCurrent={1}
+                total={total}
+                onChange={onChange}
+              />
+            </div>
+          }
 
         </Col>
         <Col className="comm-right" xs={0} sm={0} md={6} lg={6} xl={6}>
@@ -101,10 +163,12 @@ const myList = (list) => {
 
 myList.getInitialProps = async (context) => {
   let id = context.query.id;
+  const currentPage = 1;
+  const pageSize = 10;
   // console.log('context', context)
 
   const promise = new Promise((resolve) => {
-    axios(servicePath.getListById + id).then(
+    axios(`${servicePath.getListById + id}/${currentPage}/${pageSize}`).then(
       res => resolve(res.data)
     )
   })

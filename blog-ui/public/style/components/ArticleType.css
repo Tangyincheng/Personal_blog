@@ -23,4 +23,9 @@
 }
 .articleType-items:hover{
   border-bottom: 1px solid #007ca3;
+  color: #007ca3;
 }
+
+/* .articleType-items:nth-of-type(8){
+  border-bottom: 1px solid transparent;
+} */

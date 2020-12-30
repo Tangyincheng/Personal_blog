@@ -110,6 +110,7 @@ class MainController extends Controller {
       'article.article_content as article_content,' +
       "article.addTime as addTime," +
       'article.view_count as view_count ,' +
+      'article.top as top ,' +
       'type.typeName as typeName ,' +
       'type.id as typeId ' +
       'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
