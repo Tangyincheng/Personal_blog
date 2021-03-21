@@ -1,35 +1,40 @@
 .list-title {
-  font-size  : 1.3rem;
-  color      : #007ca3;
-  padding    : 0 0.5rem;
-  display    : flex;
+  height: 30px;
+  font-size: 1.3rem;
+  color: #007ca3;
+  padding: 0 0.5rem;
+  display: flex;
   align-items: center;
 }
 
+.list-title:hover {
+  font-size: 1.5rem;
+}
+
 .list-top {
-  width        : 32px;
-  height       : 24px;
-  display      : inline;
-  font-size    : 8px;
-  color        : red;
-  padding      : 2px;
-  margin-right : 4px;
-  border       : 1px solid red;
+  width: 32px;
+  height: 24px;
+  display: inline;
+  font-size: 8px;
+  color: red;
+  padding: 2px;
+  margin-right: 4px;
+  border: 1px solid red;
   border-radius: 4px;
 }
 
 .split-line {
-  height          : .3rem;
-  width           : 100%;
+  height: 0.3rem;
+  width: 100%;
   background-color: #fff;
 }
 
 .list-content {
-  width          : 100%;
-  height         : 50px;
-  display        : flex;
+  width: 100%;
+  height: 50px;
+  display: flex;
   justify-content: center;
-  align-items    : center;
+  align-items: center;
 }
 
 .ant-pagination-item-active a {
@@ -45,13 +50,13 @@
 }
 
 .list-context {
-  color  : #777;
-  padding: .5rem;
+  color: #777;
+  padding: 0.5rem;
 }
 
 .list-icon {
-  padding: .5rem 0;
-  color  : #AAA;
+  padding: 0.5rem 0;
+  color: #aaa;
 }
 
 .list-icon span {
@@ -60,43 +65,40 @@
 }
 
 pre {
-  display         : block;
+  display: block;
   background-color: #283646 !important;
-  padding         : .5rem !important;
-  overflow-y      : auto;
-  font-weight     : 300;
-  font-family     : Menlo, monospace;
-  border-radius   : .3rem;
+  padding: 0.5rem !important;
+  overflow-y: auto;
+  font-weight: 300;
+  font-family: Menlo, monospace;
+  border-radius: 0.3rem;
 }
 
-pre>code {
-  border          : 0px !important;
+pre > code {
+  border: 0px !important;
   background-color: #283646 !important;
-  color           : #FFF;
-
+  color: #fff;
 }
 
 code {
-  display         : inline-block;
+  display: inline-block;
   background-color: #f3f3f3;
-  border          : 1px solid #fdb9cc;
-  border-radius   : 3px;
-  font-size       : 12px;
-  padding-left    : 5px;
-  padding-right   : 5px;
-  color           : #4f4f4f;
-  margin          : 0px 3px;
-
+  border: 1px solid #fdb9cc;
+  border-radius: 3px;
+  font-size: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #4f4f4f;
+  margin: 0px 3px;
 }
 
 .list-context img {
-  width        : 100%;
+  width: 100%;
   border-radius: 5px;
-  border       : 1px solid #f0f0f0;
-  max-width    : 1000px !important;
-  display      : block;
-  margin       : 8px auto;
-
+  border: 1px solid #f0f0f0;
+  max-width: 1000px !important;
+  display: block;
+  margin: 8px auto;
 }
 
 .propleFire {
@@ -106,7 +108,7 @@ code {
 .article-item,
 .article-top-item {
   border-radius: 10px;
-  margin       : 4px 0;
+  margin: 4px 0;
 }
 
 .article-item:nth-child(odd) {

@@ -1,89 +1,93 @@
 .author-div {
   text-align: center;
-  padding   : 1rem;
-
+  padding: 1rem;
 }
 
 .author-div div {
   margin-bottom: 1rem;
-
 }
 
 .author-logo {
-  position     : relative;
+  position: relative;
   /* box-shadow: 10px 10px 10px 10px #999; */
-
 }
 
 .author-logo::after {
-  content      : '';
-  width        : 100%;
-  height       : 100%;
-  position     : absolute;
-  top          : 0;
-  left         : 0;
-  border       : 2px solid rgba(0, 124, 163, .8);
-  transform    : rotate(45deg);
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid rgba(0, 124, 163, 0.8);
+  transform: rotate(45deg);
   border-radius: 50%;
-  animation    : logoMove 5s cubic-bezier(.25, .45, .75, .55) 1;
+  animation: logoMove 5s cubic-bezier(0.25, 0.45, 0.75, 0.55) 1;
 }
 
 .author-introduction {
-  font-size: .8rem;
-  color    : #999;
-  position : relative;
+  font-size: 0.8rem;
+  color: #999;
+  position: relative;
 }
 
 .account,
 .accountweixin {
   background-color: #999;
-  margin-left     : .5rem;
-  margin-right    : .5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.account:hover {
+  transform: scale(1.2);
+}
+
+.accountweixin:hover {
+  transform: scale(1.2);
 }
 
 .author-img {
-  width : 50px;
+  width: 50px;
   height: 50px;
 }
 
 .weixinImg {
-  display : none;
-  width   : 120px;
-  height  : 120px;
+  display: none;
+  width: 120px;
+  height: 120px;
   position: absolute;
-  bottom  : 16px;
-  right   : 35px;
+  bottom: 16px;
+  right: 35px;
 }
 
 .weixinImgContent {
-  width : 100%;
+  width: 100%;
   height: 100%;
 }
 
-.accountweixin:hover+.weixinImg {
+.accountweixin:hover + .weixinImg {
   display: block;
   z-index: 999;
 }
 
 .author-font {
   /* font-family: "方正姚体"; */
-  font-size : 14px;
+  font-size: 14px;
   font-style: oblique;
-  position  : relative;
+  position: relative;
 }
 
 .author-font::after {
-  content : 'The Future Depends on You';
+  content: 'The Future Depends on You';
   position: absolute;
-  left    : 0;
-  top     : 0;
-  background-image: linear-gradient(to right,
-      #c23616, #192a56, #00d2d3, yellow, #6d214f, #2e86de, #4cd137, #e84118);
-  background-clip        : text;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(to right, #c23616, #192a56, #00d2d3, yellow, #6d214f, #2e86de, #4cd137, #e84118);
+  background-clip: text;
   -webkit-background-clip: text;
-  color                  : transparent;
-  clip-path              : circle(22px at 100% 50%);
-  animation              : autherMove 5s infinite;
+  color: transparent;
+  clip-path: circle(22px at 100% 50%);
+  animation: autherMove 5s infinite;
 }
 
 @keyframes autherMove {
@@ -102,47 +106,22 @@
 
 @keyframes logoMove {
   0% {
-    clip-path: polygon(0% 0%,
-        0% 0%,
-        0% 0%,
-        0% 0%,
-        0% 0%,
-        50% 50%);
+    clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 50% 50%);
   }
 
   25% {
-    clip-path: polygon(0% 0%,
-        100% 0%,
-        100% 0%,
-        100% 0%,
-        100% 0%,
-        50% 50%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 50% 50%);
   }
 
   50% {
-    clip-path: polygon(0% 0%,
-        100% 0%,
-        100% 100%,
-        100% 100%,
-        100% 100%,
-        50% 50%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%, 50% 50%);
   }
 
   75% {
-    clip-path: polygon(0% 0%,
-        100% 0%,
-        100% 100%,
-        0% 100%,
-        0% 100%,
-        50% 50%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 100%, 50% 50%);
   }
 
   100% {
-    clip-path: polygon(0% 0%,
-        100% 0%,
-        100% 100%,
-        0% 100%,
-        0% 0%,
-        50% 50%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%, 50% 50%);
   }
 }

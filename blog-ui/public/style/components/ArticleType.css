@@ -1,9 +1,9 @@
-.articleType-div{
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-    padding-left: 10px;
+.articleType-div {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: 10px;
 }
-.articleType-header{
+.articleType-header {
   height: 30px;
   font-size: 14px;
   font-weight: bold;
@@ -11,19 +11,20 @@
   border-bottom: 1px solid #ccc;
   /* padding-left: 6px; */
 }
-.articleType-items{
+.articleType-items {
   /* border-radius: .3rem; */
   height: 30px;
   line-height: 30px;
-  margin-bottom: .2rem;
+  margin-bottom: 0.2rem;
   overflow: hidden;
   cursor: pointer;
   border-bottom: 1px solid #ccc;
   font-weight: bold;
 }
-.articleType-items:hover{
+.articleType-items:hover {
   border-bottom: 1px solid #007ca3;
   color: #007ca3;
+  font-size: 16px;
 }
 
 /* .articleType-items:nth-of-type(8){
