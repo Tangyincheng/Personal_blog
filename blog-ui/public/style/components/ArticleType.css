@@ -1,8 +1,9 @@
 .articleType-div {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  padding-left: 10px;
+  padding: 10px;
 }
+
 .articleType-header {
   height: 30px;
   font-size: 14px;
@@ -11,8 +12,10 @@
   border-bottom: 1px solid #ccc;
   /* padding-left: 6px; */
 }
+
 .articleType-items {
   /* border-radius: .3rem; */
+  /* --scale: 0.6; */
   height: 30px;
   line-height: 30px;
   margin-bottom: 0.2rem;
@@ -20,13 +23,17 @@
   cursor: pointer;
   border-bottom: 1px solid #ccc;
   font-weight: bold;
+  transition: 200ms all ease-in-out;
+  /* font-size: 16px; */
+  /* font-size: calc(14px * var(--scale)); */
 }
+
 .articleType-items:hover {
   border-bottom: 1px solid #007ca3;
   color: #007ca3;
   font-size: 16px;
 }
 
-/* .articleType-items:nth-of-type(8){
+.articleType-items:nth-of-type(8) {
   border-bottom: 1px solid transparent;
-} */
+}

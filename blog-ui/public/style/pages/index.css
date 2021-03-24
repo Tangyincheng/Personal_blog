@@ -4,6 +4,7 @@
   color: #007ca3;
   padding: 0 0.5rem;
   display: flex;
+  transition: 200ms all ease-in-out;
   align-items: center;
 }
 

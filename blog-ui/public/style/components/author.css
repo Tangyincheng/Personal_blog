@@ -9,7 +9,6 @@
 
 .author-logo {
   position: relative;
-  /* box-shadow: 10px 10px 10px 10px #999; */
 }
 
 .author-logo::after {
@@ -36,14 +35,13 @@
   background-color: #999;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+  transition: 200ms all ease-in-out;
 }
 
-.account:hover {
-  transform: scale(1.2);
-}
-
+.account:hover,
 .accountweixin:hover {
   transform: scale(1.2);
+  background-color: #007ca3;
 }
 
 .author-img {
