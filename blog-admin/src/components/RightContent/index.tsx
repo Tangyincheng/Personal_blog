@@ -21,8 +21,8 @@ const GlobalHeaderRight: React.FC<{}> = () => {
   
   return (
     <Space className={className}>
-      <Avatar src="http://www.yctang.club/static/logo.png" />
-      <span style={{ color: "white" }}>yctang</span>
+      <Avatar src="http://114.117.209.134/static/logo.png" />
+      <span style={{ color: "white" }}>tangyincheng</span>
     </Space>
   );
 };

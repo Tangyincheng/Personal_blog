@@ -1,6 +1,6 @@
 /*
  * @Description:
- * @Author: yctang
+ * @Author: tangyincheng
  */
 /* eslint valid-jsdoc: "off" */
 
@@ -33,13 +33,13 @@ module.exports = (appInfo) => {
       // host
       host: 'host',
       // port
-      port: '3306',
+      port: 'port',
       // username
       user: 'user',
       // password
       password: 'password',
       // database
-      database: 'react_blog',
+      database: 'database',
     },
     // load into app, default is open
     app: true,
@@ -51,8 +51,9 @@ module.exports = (appInfo) => {
     csrf: {
       enable: false,
     },
-    domainWhiteList: ['http://localhost:3000', 'http://localhost:8000'],
-    // domainWhiteList: ['http://www.yctang.club', 'http://www.yctang.club:81']
+    // domainWhiteList: ['http://localhost:3000', 'http://localhost:8000'],
+    // domainWhiteList: ['http://www.tangyincheng.com', 'http://www.tangyincheng.com:81'],
+    domainWhiteList: ['http://114.117.209.134', 'http://114.117.209.134:81'],
   }
 
   config.cors = {

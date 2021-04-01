@@ -1,20 +1,20 @@
 /*
- * @Description: 
- * @Author: yctang
- */ 
-'use strict';
+ * @Description:
+ * @Author: tangyincheng
+ */
+'use strict'
 
-const Controller = require('egg').Controller;
+const Controller = require('egg').Controller
 
 class HomeController extends Controller {
   async index() {
-    const { ctx } = this;
-    ctx.body = 'hi, egg';
+    const { ctx } = this
+    ctx.body = 'hi, egg'
   }
-  async list(){
-    const {ctx} = this;
-    ctx.body = '<h1>yctang<h1>'
+  async list() {
+    const { ctx } = this
+    ctx.body = '<h1>tangyincheng<h1>'
   }
 }
 
-module.exports = HomeController;
+module.exports = HomeController

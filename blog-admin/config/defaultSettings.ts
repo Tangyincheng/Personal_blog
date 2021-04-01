@@ -12,7 +12,7 @@ export default {
   menu: {
     locale: true,
   },
-  title: 'yctang',
+  title: 'tangyincheng',
   pwa: false,
   iconfontUrl: '',
 } as LayoutSettings & {

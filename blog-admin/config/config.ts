@@ -12,7 +12,7 @@ export default defineConfig({
     hmr: true,
   },
   layout: {
-    name: 'yctang',
+    name: 'tangyincheng',
     locale: true,
   },
   locale: {

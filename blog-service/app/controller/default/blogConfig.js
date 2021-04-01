@@ -1,42 +1,41 @@
 /*
  * @Description: 博客配置API
- * @Author: yctang
+ * @Author: tangyincheng
  */
 
-const Controller = require('egg').Controller;
+const Controller = require('egg').Controller
 
 class BlogConfigController extends Controller {
-
   // 博客大事件
   async getBlogEvent() {
-    let resType = await this.app.mysql.select('blog_event', {
-      orders: [['id']]
+    const resType = await this.app.mysql.select('blog_event', {
+      orders: [['id']],
     })
-    for (let i in resType) {
-      resType[i].key = resType[i].id;
+    for (const i in resType) {
+      resType[i].key = resType[i].id
     }
     this.ctx.body = { data: resType }
   }
 
   // 友情链接
   async getFrindsLink() {
-    let resType = await this.app.mysql.select('friends_link', {
-      orders: [['id']]
+    const resType = await this.app.mysql.select('friends_link', {
+      orders: [['id']],
     })
-    for (let i in resType) {
-      resType[i].key = resType[i].id;
+    for (const i in resType) {
+      resType[i].key = resType[i].id
     }
     this.ctx.body = { data: resType }
   }
 
   // blog  icon
   async getBlogIcon() {
-    let resType = await this.app.mysql.select('blog_icon')
-    for (let i in resType) {
-      resType[i].key = resType[i].id;
+    const resType = await this.app.mysql.select('blog_icon')
+    for (const i in resType) {
+      resType[i].key = resType[i].id
     }
     this.ctx.body = { code: 1, data: resType }
   }
 }
 
-module.exports = BlogConfigController;
+module.exports = BlogConfigController

@@ -47,12 +47,12 @@ const Home = (list) => {
   return (
     <div className="container">
       <Head>
-        <title>首页 | yctang-The Future Depends on You</title>
+        <title>首页 | tangyincheng-The Future Depends on You</title>
         <meta charSet="UTF-8" />
-        <meta name="keywords" content="yctang" />
-        <meta name="description" content="首页 | yctang-The Future Depends on You" />
+        <meta name="keywords" content="tangyincheng" />
+        <meta name="description" content="首页 | tangyincheng-The Future Depends on You" />
         <meta name="robots" content="all" />
-        <meta name="author" content="yctang" />
+        <meta name="author" content="tangyincheng" />
         <meta name="google-site-verification" content="b7XdkZDn_li_SpxcgFM9oQLFUhVjXw6fqu_r84jo9wY" />
         <link rel="icon" href="../static/favicon.ico" mce_href="../static/favicon.ico" type="image/x-icon" />
       </Head>

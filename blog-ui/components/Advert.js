@@ -1,6 +1,6 @@
 /*
  * @Description: 广告组件
- * @Author: yctang
+ * @Author: tangyincheng
  */
 
 import '../public/style/components/advert.css'

@@ -1,66 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
-import { Row, Col, List, Affix, Breadcrumb, Spin, Pagination } from 'antd';
-import { CalendarOutlined, FireOutlined } from '@ant-design/icons';
-import axios from 'axios';
-import classNames from 'classnames';
+import React, { useState, useEffect } from 'react'
+import Head from 'next/head'
+import Link from 'next/link'
+import { Row, Col, List, Affix, Breadcrumb, Spin, Pagination } from 'antd'
+import { CalendarOutlined, FireOutlined } from '@ant-design/icons'
+import axios from 'axios'
+import classNames from 'classnames'
 import { withRouter } from 'next/router'
 
-import Header from '../components/Header';
-import Author from '../components/Author';
-import Advert from '../components/Advert';
-import Footer from '../components/Footer';
-import ArticleType from '../components/ArticleType';
-import '../public/style/pages/index.css';
+import Header from '../components/Header'
+import Author from '../components/Author'
+import Advert from '../components/Advert'
+import Footer from '../components/Footer'
+import ArticleType from '../components/ArticleType'
+import '../public/style/pages/index.css'
 
-import servicePath from '../config/apiUrl';
+import servicePath from '../config/apiUrl'
 
 const myList = (list) => {
-
-  const { type: typeName, loading: loadingProps, id: typeId } = list.router.query;
-  const top = 0;
-  const advert = 54;
-  const pageSize = 10;
-  const [toplist, settoplist] = useState([]);
-  const [mylist, setMylist] = useState();
+  const { type: typeName, loading: loadingProps, id: typeId } = list.router.query
+  const top = 0
+  const advert = 54
+  const pageSize = 10
+  const [toplist, settoplist] = useState([])
+  const [mylist, setMylist] = useState()
   const [loading, setLoading] = useState(false)
-  const [total, setTotal] = useState(1);
+  const [total, setTotal] = useState(1)
 
   // const loadingProps = list.router.query.loading;
   const propleNum = classNames({
-    'propleFire': true
+    propleFire: true,
   })
 
   const onChange = (value) => {
-    axios(`${servicePath.getListById + typeId}/${value}/${pageSize}`).then(
-      res => {
-        setMylist(res.data.data);
-        setTotal(list.total_count);
-      }
-    )
+    axios(`${servicePath.getListById + typeId}/${value}/${pageSize}`).then((res) => {
+      setMylist(res.data.data)
+      setTotal(list.total_count)
+    })
   }
 
   useEffect(() => {
-    setMylist(list.data);
-    setTotal(list.total_count);
+    setMylist(list.data)
+    setTotal(list.total_count)
   }, [list.data])
 
   useEffect(() => {
-    axios(servicePath.getListTopById + typeId).then(
-      res => settoplist(res.data.data)
-    )
+    axios(servicePath.getListTopById + typeId).then((res) => settoplist(res.data.data))
   }, [typeId])
 
   return (
-    < div className="container" >
+    <div className="container">
       <Head>
-        <title>首页 | yctang-The Future Depends on You</title>
+        <title>首页 | tangyincheng-The Future Depends on You</title>
         <meta charSet="UTF-8" />
-        <meta name="keywords" content="yctang" />
-        <meta name="description" content="首页 | yctang-The Future Depends on You" />
+        <meta name="keywords" content="tangyincheng" />
+        <meta name="description" content="首页 | tangyincheng-The Future Depends on You" />
         <meta name="robots" content="all" />
-        <meta name="author" content="yctang" />
+        <meta name="author" content="tangyincheng" />
         <meta name="google-site-verification" content="b7XdkZDn_li_SpxcgFM9oQLFUhVjXw6fqu_r84jo9wY" />
         <link rel="icon" href="../static/favicon.ico" mce_href="../static/favicon.ico" type="image/x-icon" />
       </Head>
@@ -70,17 +65,19 @@ const myList = (list) => {
 
       <Row className="comm-main" type="flex" justify="center">
         <Col className="comm-left" xs={23} sm={23} md={18} lg={18} xl={18}>
-
           <div className="bread-div">
             <Breadcrumb>
-              <Breadcrumb.Item><a href="/" style={{ color: '#007ca3' }} onClick={() => setLoading(true)}>首页</a></Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <a href="/" style={{ color: '#007ca3' }} onClick={() => setLoading(true)}>
+                  首页
+                </a>
+              </Breadcrumb.Item>
               <Breadcrumb.Item>{typeName}</Breadcrumb.Item>
               {/* <Breadcrumb.Item>{}</Breadcrumb.Item> */}
             </Breadcrumb>
           </div>
           {/* 置顶列表 */}
-          {
-            toplist.length > 0 &&
+          {toplist.length > 0 && (
             <div>
               <List
                 itemLayout="vertical"
@@ -95,9 +92,18 @@ const myList = (list) => {
                         </Link>
                       </div>
                       <div className="list-icon">
-                        <span><CalendarOutlined />{item.addTime.split(' ')[0]}</span>
-                        <span><CalendarOutlined />{item.typeName}</span>
-                        <span className={propleNum}><FireOutlined />{item.view_count}人</span>
+                        <span>
+                          <CalendarOutlined />
+                          {item.addTime.split(' ')[0]}
+                        </span>
+                        <span>
+                          <CalendarOutlined />
+                          {item.typeName}
+                        </span>
+                        <span className={propleNum}>
+                          <FireOutlined />
+                          {item.view_count}人
+                        </span>
                       </div>
                       <div className="list-context">{item.introduce}</div>
                     </Spin>
@@ -106,7 +112,7 @@ const myList = (list) => {
               />
               {/* <div className="split-line"></div> */}
             </div>
-          }
+          )}
 
           <List
             itemLayout="vertical"
@@ -120,9 +126,18 @@ const myList = (list) => {
                     </Link>
                   </div>
                   <div className="list-icon">
-                    <span><CalendarOutlined />{item.addTime.split(' ')[0]}</span>
-                    <span><CalendarOutlined />{item.typeName}</span>
-                    <span className={propleNum}><FireOutlined />{item.view_count}人</span>
+                    <span>
+                      <CalendarOutlined />
+                      {item.addTime.split(' ')[0]}
+                    </span>
+                    <span>
+                      <CalendarOutlined />
+                      {item.typeName}
+                    </span>
+                    <span className={propleNum}>
+                      <FireOutlined />
+                      {item.view_count}人
+                    </span>
                   </div>
                   <div className="list-context">{item.introduce}</div>
                   {/* {
@@ -134,17 +149,11 @@ const myList = (list) => {
               </List.Item>
             )}
           />
-          {
-            total > 10 &&
+          {total > 10 && (
             <div className="list-content">
-              <Pagination
-                defaultCurrent={1}
-                total={total}
-                onChange={onChange}
-              />
+              <Pagination defaultCurrent={1} total={total} onChange={onChange} />
             </div>
-          }
-
+          )}
         </Col>
         <Col className="comm-right" xs={0} sm={0} md={6} lg={6} xl={6}>
           <Author />
@@ -156,21 +165,18 @@ const myList = (list) => {
         </Col>
         <Footer />
       </Row>
-
-    </div >
+    </div>
   )
 }
 
 myList.getInitialProps = async (context) => {
-  let id = context.query.id;
-  const currentPage = 1;
-  const pageSize = 10;
+  let id = context.query.id
+  const currentPage = 1
+  const pageSize = 10
   // console.log('context', context)
 
   const promise = new Promise((resolve) => {
-    axios(`${servicePath.getListById + id}/${currentPage}/${pageSize}`).then(
-      res => resolve(res.data)
-    )
+    axios(`${servicePath.getListById + id}/${currentPage}/${pageSize}`).then((res) => resolve(res.data))
   })
   return await promise
 }

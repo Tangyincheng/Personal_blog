@@ -1,6 +1,6 @@
 /*
  * @Description: 文章类型组件
- * @Author: yctang
+ * @Author: tangyincheng
  */
 import React, { useState, useEffect, useRef } from 'react'
 

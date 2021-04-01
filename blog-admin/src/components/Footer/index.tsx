@@ -3,12 +3,12 @@ import { DefaultFooter } from '@ant-design/pro-layout';
 
 export default () => (
   <DefaultFooter
-    copyright="2020 yctang博客管理系统"
+    copyright="2020 tangyincheng博客管理系统"
     links={[
       // {
-      //   key: 'yctang',
-      //   title: 'yctang',
-      //   href: 'http://www.yctang.club',
+      //   key: 'tangyincheng',
+      //   title: 'tangyincheng',
+      //   href: 'http://www.tangyincheng.com',
       //   blankTarget: true,
       // }
     ]}

@@ -67,7 +67,7 @@ const Login: React.FC<{}> = () => {
   return (
     <div className={styles.login_div}>
       <Spin tip="loading..." spinning={isLoading}>
-        <Card title="yctang-个人博客后台管理系统" bordered={true} style={{ width: 400 }}>
+        <Card title="tangyincheng-个人博客后台管理系统" bordered={true} style={{ width: 400 }}>
           <Input
             id="userName"
             size="large"
