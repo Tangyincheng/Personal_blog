@@ -62,7 +62,11 @@ const Header = () => {
               <strong className="header-font">The Future Depends on You</strong>
             </span>
           </Col>
-          <Col xs={0} sm={0} md={6} lg={12} xl={12} />
+          <Col xs={0} sm={0} md={6} lg={12} xl={12}>
+            <div className="my_resume">{/* <Link href={{ pathname: '/myResume' }}>
+                <span>我的简历</span>
+              </Link> */}</div>
+          </Col>
         </Row>
 
         <Row justify={'space-around'}>

@@ -1,33 +1,33 @@
-.header{
+.header {
   background-color: #fff;
-  padding: .4rem;
+  padding: 0.4rem;
   overflow: hidden;
   /* height: 3.0rem; */
   border-bottom: 1px solid #ccc;
 }
 
-.header-content{
+.header-content {
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.header-logo{
+.header-logo {
   color: #007ca3;
   font-size: 1.6rem;
   text-emphasis: left;
   cursor: pointer;
 }
 
-.header-txt{
+.header-txt {
   /* line-height: 100%; */
   font-size: 12px;
   color: #999;
   position: absolute;
   bottom: 0;
-  padding-left: .3rem;
+  padding-left: 0.3rem;
 }
 
-.NavBar{
+.NavBar {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
@@ -38,17 +38,18 @@
   padding: 0;
 }
 
-.NavBarItem{
+.NavBarItem {
   padding: 0 5px;
   display: inline-block;
   font-size: 12px;
 }
 
-.NavBarItem:hover{
+.NavBarItem:hover {
   border-bottom: 1px solid #007ca3;
 }
 
-.NavBarItemleft, .NavBarItemright{
+.NavBarItemleft,
+.NavBarItemright {
   display: inline-block;
 }
 
@@ -56,11 +57,26 @@
   display: none;
 }
 
-.header-font{
+.header-font {
   /* font-family: "方正姚体"; */
   font-size: 14px;
   font-style: oblique;
   position: relative;
+}
+
+.my_resume {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  font-size: 1rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.my_resume:hover span {
+  color: #007ca3;
+  cursor: pointer;
+  font-weight: bold;
 }
 /* .header-font::after{
   content: 'The Future Depends on You';
