@@ -1,0 +1,197 @@
+body {
+  /* background-color: #fff; */
+}
+
+.my-introduce,
+.my-education,
+.my-introduction,
+.my-experience {
+  border-radius: 8px;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  border: 8px solid #fff;
+}
+
+.my-introduce {
+  background-color: #f8f9fa;
+}
+
+.my-education {
+  background-color: #fff5f5;
+  position: relative;
+}
+
+.my-introduction {
+  background-color: #fff0f6;
+  position: relative;
+}
+
+.my-introduction .introduction-left-item {
+  z-index: -1;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50px;
+  background: #d8d2b0;
+  box-shadow: inset 20px 20px 55px #b5b094, inset -20px -20px 55px #fbf4cc;
+  top: 30%;
+  left: -100px;
+  animation: introduction-left 5s linear infinite;
+}
+
+@keyframes introduction-left {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.my-experience {
+  background-color: #f8f0fc;
+  position: relative;
+}
+
+/* .my-experience .experience-right-item {
+  z-index: -1;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50px;
+  background: #536a66;
+  box-shadow: inset 20px 20px 55px #475a57, inset -20px -20px 55px #5f7a75;
+  top: 40%;
+  right: -100px;
+  animation: introduction-left 5s linear infinite;
+} */
+
+.my-introduce:hover,
+.my-education:hover,
+.my-introduction:hover,
+.my-experience:hover {
+  transform: scale(1.01);
+  z-index: 0;
+  /* animation: itemMove 0.5s forwards ease-in-out; */
+}
+
+@keyframes itemMove {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.01);
+  }
+}
+
+.my-resume-title {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 20px;
+  margin-left: 6px;
+  position: relative;
+}
+
+.my-resume-title::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-top-left-radius: 10px;
+  border-bottom: 10px solid transparent;
+  border-bottom-left-radius: 10px;
+  border-left: 15px solid rgb(122, 209, 136);
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+
+.my-introduce ul {
+  margin: 0;
+}
+
+li,
+.experience-content {
+  list-style: none;
+  font-size: 20px;
+  font-family: Helvetica;
+}
+
+.my-introduce .my-name,
+.my-phone,
+.my-WeChat,
+.my-email,
+.my-occupation {
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  margin: 4px;
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+.my-name {
+  background: linear-gradient(145deg, #c5f6fa, #99e9f2);
+  box-shadow: 3px 3px 6px #e3fafc, -3px -3px 6px #e3fafc, -3px 3px 6px #e3fafc, 3px -3px 6px #e3fafc;
+}
+
+.my-phone {
+  background: linear-gradient(145deg, #c3fae8, #96f2d7);
+  box-shadow: 3px 3px 6px #e3fcf5, -3px -3px 6px #e3fcf5, -3px 3px 6px #e3fcf5, 3px -3px 6px #e6fcf5;
+}
+
+.my-WeChat {
+  background: linear-gradient(145deg, #d3f9d8, #b2f2bb);
+  box-shadow: 3px 3px 6px #ebfbee, -3px -3px 6px #ebfbee, -3px 3px 6px #ebfbee, 3px -3px 6px #ebfbee;
+}
+
+.my-email {
+  background: linear-gradient(145deg, #e9fac8, #d8f5a2);
+  box-shadow: 3px 3px 6px #f4fce3, -3px -3px 6px #f4fce3, -3px 3px 6px #f4fce3, 3px -3px 6px #f4fce3;
+}
+
+.my-occupation {
+  background: linear-gradient(145deg, #fff3bf, #ffe066);
+  box-shadow: 3px 3px 6px #fff9db, -3px -3px 6px #fff9db, -3px 3px 6px #fff9db, 3px -3px 6px #fff9db;
+}
+
+.my-introduce .my-name,
+.my-phone,
+.my-email,
+.my-WeChat,
+.my-occupation {
+  cursor: pointer;
+  animation: myName 2s forwards calc(var(--i) * 1s) ease-in-out;
+}
+
+@keyframes myName {
+  0% {
+    transform: rotateY(0);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.my-experience .experience-content {
+  padding: 0 20px;
+}
+
+.my-experience .experience-content .experience-company {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f3d9fa;
+  border-radius: 8px;
+  padding: 0 4px;
+  margin: 4px 0;
+}
+
+.schoolLogo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

@@ -11,12 +11,14 @@ import Router from 'next/router'
 import Link from 'next/link'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
+// import backgroundMusic from '../utils/backgroundMusic.mp3'
 
 import '../public/style/components/header.css'
 
 const Header = () => {
   const [navArray, setNavArray] = useState([])
   const [iconLink, setIconLink] = useState('')
+  const [isMyResume, setIsMyResume] = useState(false)
 
   useEffect(() => {
     const fetchIconData = async () => {
@@ -49,6 +51,14 @@ const Header = () => {
     scriptUrl: iconLink, // 在 iconfont.cn 上生成
   })
 
+  useEffect(() => {
+    if (Router.pathname === '/myResume') {
+      setIsMyResume(true)
+    } else {
+      setIsMyResume(false)
+    }
+  })
+
   return (
     <div className="header">
       <div className="header-content">
@@ -63,9 +73,14 @@ const Header = () => {
             </span>
           </Col>
           <Col xs={0} sm={0} md={6} lg={12} xl={12}>
-            <div className="my_resume">{/* <Link href={{ pathname: '/myResume' }}>
-                <span>我的简历</span>
-              </Link> */}</div>
+            {/* <audio src="http://114.117.209.134:8001/backgroundMusic.mp3" autoPlay></audio> */}
+            {!isMyResume && (
+              <div className="my_resume">
+                <Link href={{ pathname: '/myResume' }}>
+                  <span>我的简历</span>
+                </Link>
+              </div>
+            )}
           </Col>
         </Row>
 
