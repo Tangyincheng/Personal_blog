@@ -78,30 +78,17 @@
   cursor: pointer;
   font-weight: bold;
 }
-/* .header-font::after{
-  content: 'The Future Depends on You';
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-image: linear-gradient(to right,
-  #c23616, #192a56, #00d2d3, yellow, #6d214f, #2e86de, #4cd137, #e84118);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  clip-path: circle(22px at 0% 50%);
-  animation: headerMove 5s infinite;
-} */
 
-/* @keyframes headerMove{
-  0% {
-    clip-path: circle(22px at 0% 50%);
-  }
+.my-resume {
+  display: none;
+}
 
-  50% {
-    clip-path: circle(22px at 100% 50%);
+@media screen and (max-width: 768px) {
+  .my-resume {
+    display: inline;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 14px;
   }
-
-  100% {
-    clip-path: circle(22px at 0% 50%);
-  }
-} */
+}

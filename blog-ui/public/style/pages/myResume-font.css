@@ -1,0 +1,234 @@
+.my-introduction .my-Inventory {
+  width: 220px;
+  height: 220px;
+  position: absolute;
+  top: 150px;
+  right: 30px;
+}
+
+.my-introduction .my-Inventory .Inventory-item {
+  padding: 0 4px 4px 0;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.my-introduction .my-Inventory .JavaScript {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ff8a65;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.my-introduction .my-Inventory .HTML {
+  font-size: 26px;
+  font-weight: bold;
+  color: #ff5722;
+  position: absolute;
+  top: 24%;
+  left: 15%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.my-introduction .my-Inventory .uni-app {
+  font-size: 26px;
+  font-weight: bold;
+  color: #156d31;
+  position: absolute;
+  top: 25%;
+  left: 21%;
+}
+
+.my-introduction .my-Inventory .CSS {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e64a19;
+  position: absolute;
+  top: 60%;
+  left: 60%;
+  letter-spacing: 1.4;
+  /* transform: rotate(-90deg); */
+}
+
+.my-introduction .my-Inventory .React {
+  font-size: 26px;
+  font-weight: bold;
+  color: #10a78d;
+  position: absolute;
+  top: 55%;
+  left: 12%;
+  /* transform: rotate(90deg); */
+}
+.my-introduction .my-Inventory .Vue {
+  font-size: 26px;
+  font-weight: bold;
+  color: #42b884;
+  position: absolute;
+  top: 25%;
+  left: 66%;
+}
+
+.my-introduction .my-Inventory .nodeJS {
+  font-size: 26px;
+  font-weight: bold;
+  color: #42b884;
+  position: absolute;
+  top: 38%;
+  left: -48%;
+}
+
+.my-introduction .my-Inventory .eggJS {
+  font-size: 22px;
+  font-weight: bold;
+  color: #494949;
+  position: absolute;
+  top: 50%;
+  left: -35%;
+}
+
+.my-introduction .my-Inventory .Electron {
+  font-size: 26px;
+  font-weight: bold;
+  color: #01579b;
+  position: absolute;
+  top: 42%;
+  left: 72%;
+  transform: rotate(90deg);
+}
+
+.my-introduction .my-Inventory .MySQL {
+  font-size: 26px;
+  font-weight: bold;
+  color: #9c27b0;
+  position: absolute;
+  top: 45%;
+  left: -18%;
+  transform: rotate(90deg);
+}
+
+.my-introduction .my-Inventory .Dva {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fc54c3;
+  position: absolute;
+  top: 75%;
+  left: 13%;
+  transform: rotate(90deg);
+}
+
+.my-introduction .my-Inventory .umi {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1890ff;
+  position: absolute;
+  top: 75%;
+  left: 30%;
+  transform: rotate(90deg);
+}
+
+.my-introduction .my-Inventory .Vuex {
+  font-size: 18px;
+  font-weight: bold;
+  color: #34485e;
+  position: absolute;
+  top: 15%;
+  left: 22%;
+}
+
+.my-introduction .my-Inventory .Vant {
+  font-size: 18px;
+  font-weight: bold;
+  color: #19b5fe;
+  position: absolute;
+  top: 10%;
+  left: 42%;
+  transform: rotate(-90deg);
+}
+
+.my-introduction .my-Inventory .Vue-Router {
+  width: 110px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #689f38;
+  position: absolute;
+  top: 15%;
+  left: 60%;
+}
+
+.my-introduction .my-Inventory .Ant-Design-Pro {
+  width: 150px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #0e74ff;
+  position: absolute;
+  top: 100%;
+  left: -20%;
+  transform: rotate(90deg);
+}
+
+.my-introduction .my-Inventory .React-Router {
+  width: 150px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #19b5fe;
+  position: absolute;
+  top: 100%;
+  left: -3%;
+  transform: rotate(90deg);
+}
+
+.my-introduction .my-Inventory .Redux {
+  font-size: 18px;
+  font-weight: bold;
+  color: #7649bb;
+  position: absolute;
+  top: 68%;
+  left: 35%;
+  transform: rotate(90deg);
+}
+
+.my-introduction .my-Inventory .Redux-thunk {
+  width: 150px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #4d3670;
+  position: absolute;
+  top: 74%;
+  left: 52%;
+  /* transform: rotate(-90deg); */
+}
+
+.my-introduction .my-Inventory .Redux-Saga {
+  width: 150px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #a06af1;
+  position: absolute;
+  top: 80%;
+  left: 52%;
+  /* transform: rotate(-90deg); */
+}
+
+.my-introduction .my-Inventory .NextJS {
+  width: 150px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #1565c0;
+  position: absolute;
+  top: 90%;
+  left: 36%;
+  /* transform: rotate(-90deg); */
+}
+
+@media screen and (max-width: 768px) {
+  .my-introduction .my-Inventory {
+    opacity: 0.1;
+    right: 10px;
+    transform: scale(0.8);
+  }
+  .my-cylinder div {
+    opacity: 0.4;
+  }
+}

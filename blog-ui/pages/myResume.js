@@ -3,6 +3,7 @@ import { Row, Col, List, Affix, Breadcrumb, Spin, Pagination } from 'antd'
 
 import Header from '../components/Header'
 import '../public/style/pages/myResume.css'
+import '../public/style/pages/myResume-font.css'
 
 const myResume = () => {
   const top = 0
@@ -22,9 +23,19 @@ const myResume = () => {
         <Header />
       </Affix>
       <Row className="comm-main" type="flex" justify="center">
-        <Col xs={24} sm={24} md={24} lg={24} xl={24}>
+        <Col xs={24} sm={24} md={24} lg={24} xl={24} className="content">
+          <div>
+            <div className="introduction-left-item"></div>
+          </div>
           <div className="my-introduce">
-            <audio src="http://114.117.209.134:8001/backgroundMusic.mp3" autoPlay></audio>
+            <audio src="http://114.117.209.134:8001/backgroundMusic.flac" autoPlay></audio>
+            <div className="my-cylinder">
+              <div style={{ '--a': '-5', '--b': '1.8', '--c': '0.5', backgroundColor: '#ffec99' }} />
+              <div style={{ '--a': '1', '--b': '1.6', '--c': '0.9', backgroundColor: '#d8f5a2' }} />
+              <div style={{ '--a': '7', '--b': '1.4', '--c': '0.3', backgroundColor: '#b2f2bb' }} />
+              <div style={{ '--a': '13', '--b': '1.2', '--c': '0.2', backgroundColor: '#96f2d7' }} />
+              <div style={{ '--a': '19', '--b': '1', '--c': '0.7', backgroundColor: '#99e9f2' }} />
+            </div>
             <div className="my-resume-title">基本信息</div>
             <ul>
               <li>
@@ -35,152 +46,153 @@ const myResume = () => {
                 <span className="my-name" style={{ '--i': '0' }}>
                   唐
                 </span>
-                <span className="my-name" style={{ '--i': '1' }}>
+                <span className="my-name" style={{ '--i': '0.5' }}>
                   银
                 </span>
-                <span className="my-name" style={{ '--i': '2' }}>
+                <span className="my-name" style={{ '--i': '1' }}>
                   城
                 </span>
               </li>
               <li>
-                <span>电话：</span>
-                <span className="my-phone" style={{ '--i': '0.1' }}>
-                  1
+                <span>职位：</span>
+                <span className="my-occupation" style={{ '--i': '0.5' }}>
+                  前
                 </span>
-                <span className="my-phone" style={{ '--i': '1.1' }}>
-                  3
+                <span className="my-occupation" style={{ '--i': '1' }}>
+                  端
                 </span>
-                <span className="my-phone" style={{ '--i': '2.1' }}>
-                  2
+                <span className="my-occupation" style={{ '--i': '1.5' }}>
+                  工
                 </span>
-                <span className="my-phone" style={{ '--i': '3.1' }}>
-                  8
+                <span className="my-occupation" style={{ '--i': '2' }}>
+                  程
                 </span>
-                <span className="my-phone" style={{ '--i': '4.1' }}>
-                  1
-                </span>
-                <span className="my-phone" style={{ '--i': '5.1' }}>
-                  8
-                </span>
-                <span className="my-phone" style={{ '--i': '6.1' }}>
-                  2
-                </span>
-                <span className="my-phone" style={{ '--i': '7.1' }}>
-                  1
-                </span>
-                <span className="my-phone" style={{ '--i': '8.1' }}>
-                  1
-                </span>
-                <span className="my-phone" style={{ '--i': '9.1' }}>
-                  8
-                </span>
-                <span className="my-phone" style={{ '--i': '10.1' }}>
-                  1
+                <span className="my-occupation" style={{ '--i': '2.5' }}>
+                  师
                 </span>
               </li>
               <li>
                 <span>微信：</span>
-                <span className="my-WeChat" style={{ '--i': '0.2' }}>
+                <span className="my-WeChat" style={{ '--i': '1' }}>
                   y
                 </span>
-                <span className="my-WeChat" style={{ '--i': '1.2' }}>
+                <span className="my-WeChat" style={{ '--i': '1.5' }}>
                   c
                 </span>
-                <span className="my-WeChat" style={{ '--i': '2.2' }}>
+                <span className="my-WeChat" style={{ '--i': '2' }}>
                   t
                 </span>
-                <span className="my-WeChat" style={{ '--i': '3.2' }}>
+                <span className="my-WeChat" style={{ '--i': '2.5' }}>
                   a
                 </span>
-                <span className="my-WeChat" style={{ '--i': '4.2' }}>
+                <span className="my-WeChat" style={{ '--i': '3' }}>
                   n
                 </span>
-                <span className="my-WeChat" style={{ '--i': '5.2' }}>
+                <span className="my-WeChat" style={{ '--i': '3.5' }}>
                   g
                 </span>
-                <span className="my-WeChat" style={{ '--i': '6.2' }}>
+                <span className="my-WeChat" style={{ '--i': '4' }}>
                   0
                 </span>
-                <span className="my-WeChat" style={{ '--i': '7.2' }}>
+                <span className="my-WeChat" style={{ '--i': '4.5' }}>
                   8
                 </span>
-                <span className="my-WeChat" style={{ '--i': '8.2' }}>
+                <span className="my-WeChat" style={{ '--i': '5' }}>
                   1
                 </span>
-                <span className="my-WeChat" style={{ '--i': '9.2' }}>
+                <span className="my-WeChat" style={{ '--i': '5.5' }}>
                   1
                 </span>
               </li>
+              <li>
+                <span>电话：</span>
+                <span className="my-phone" style={{ '--i': '1.5' }}>
+                  1
+                </span>
+                <span className="my-phone" style={{ '--i': '2' }}>
+                  3
+                </span>
+                <span className="my-phone" style={{ '--i': '2.5' }}>
+                  2
+                </span>
+                <span className="my-phone" style={{ '--i': '3' }}>
+                  8
+                </span>
+                <span className="my-phone" style={{ '--i': '3.5' }}>
+                  1
+                </span>
+                <span className="my-phone" style={{ '--i': '4' }}>
+                  8
+                </span>
+                <span className="my-phone" style={{ '--i': '4.5' }}>
+                  2
+                </span>
+                <span className="my-phone" style={{ '--i': '5' }}>
+                  1
+                </span>
+                <span className="my-phone" style={{ '--i': '5.5' }}>
+                  1
+                </span>
+                <span className="my-phone" style={{ '--i': '6' }}>
+                  8
+                </span>
+                <span className="my-phone" style={{ '--i': '6.5' }}>
+                  1
+                </span>
+              </li>
+
               <li>
                 <span>邮箱：</span>
-                <span className="my-email" style={{ '--i': '0.3' }}>
+                <span className="my-email" style={{ '--i': '2' }}>
                   1
                 </span>
-                <span className="my-email" style={{ '--i': '1.3' }}>
+                <span className="my-email" style={{ '--i': '2.5' }}>
                   0
                 </span>
-                <span className="my-email" style={{ '--i': '2.3' }}>
+                <span className="my-email" style={{ '--i': '3' }}>
                   6
                 </span>
-                <span className="my-email" style={{ '--i': '3.3' }}>
+                <span className="my-email" style={{ '--i': '3.5' }}>
                   9
                 </span>
-                <span className="my-email" style={{ '--i': '4.3' }}>
+                <span className="my-email" style={{ '--i': '4' }}>
                   2
                 </span>
-                <span className="my-email" style={{ '--i': '5.3' }}>
+                <span className="my-email" style={{ '--i': '4.5' }}>
                   5
                 </span>
-                <span className="my-email" style={{ '--i': '6.3' }}>
+                <span className="my-email" style={{ '--i': '5' }}>
                   2
                 </span>
-                <span className="my-email" style={{ '--i': '7.3' }}>
+                <span className="my-email" style={{ '--i': '5.5' }}>
                   0
                 </span>
-                <span className="my-email" style={{ '--i': '8.3' }}>
+                <span className="my-email" style={{ '--i': '6' }}>
                   2
                 </span>
-                <span className="my-email" style={{ '--i': '9.3' }}>
+                <span className="my-email" style={{ '--i': '6.5' }}>
                   0
                 </span>
-                <span className="my-email" style={{ '--i': '10.3' }}>
+                <span className="my-email" style={{ '--i': '7' }}>
                   @
                 </span>
-                <span className="my-email" style={{ '--i': '11.3' }}>
+                <span className="my-email" style={{ '--i': '7.5' }}>
                   q
                 </span>
-                <span className="my-email" style={{ '--i': '12.3' }}>
+                <span className="my-email" style={{ '--i': '8' }}>
                   q
                 </span>
-                <span className="my-email" style={{ '--i': '13.3' }}>
+                <span className="my-email" style={{ '--i': '8.5' }}>
                   .
                 </span>
-                <span className="my-email" style={{ '--i': '14.3' }}>
+                <span className="my-email" style={{ '--i': '9' }}>
                   c
                 </span>
-                <span className="my-email" style={{ '--i': '15.3' }}>
+                <span className="my-email" style={{ '--i': '9.5' }}>
                   o
                 </span>
-                <span className="my-email" style={{ '--i': '16.3' }}>
+                <span className="my-email" style={{ '--i': '10' }}>
                   m
-                </span>
-              </li>
-              <li>
-                <span>职位：</span>
-                <span className="my-occupation" style={{ '--i': '0.4' }}>
-                  前
-                </span>
-                <span className="my-occupation" style={{ '--i': '1.4' }}>
-                  端
-                </span>
-                <span className="my-occupation" style={{ '--i': '2.4' }}>
-                  工
-                </span>
-                <span className="my-occupation" style={{ '--i': '3.4' }}>
-                  程
-                </span>
-                <span className="my-occupation" style={{ '--i': '4.4' }}>
-                  师
                 </span>
               </li>
             </ul>
@@ -210,12 +222,34 @@ const myResume = () => {
           </div>
           <div className="my-introduction">
             <div className="my-resume-title">技能简介</div>
-            <div>
-              <div className="introduction-left-item"></div>
+            <div className="my-Inventory">
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <span className="Inventory-item HTML">HTML</span>
+                <span className="Inventory-item CSS">CSS</span>
+                <span className="Inventory-item JavaScript">JavaScript</span>
+                <span className="Inventory-item React">React</span>
+                <span className="Inventory-item React-Router">React-Router</span>
+                <span className="Inventory-item Redux">Redux</span>
+                <span className="Inventory-item Redux-thunk">Redux-thunk</span>
+                <span className="Inventory-item Redux-Saga">Redux-Saga</span>
+                <span className="Inventory-item Ant-Design-Pro">Ant Design Pro</span>
+                <span className="Inventory-item Dva">Dva</span>
+                <span className="Inventory-item umi">umi</span>
+                <span className="Inventory-item NextJS">NextJS</span>
+                <span className="Inventory-item Vue">Vue</span>
+                <span className="Inventory-item Vuex">Vuex</span>
+                <span className="Inventory-item Vue-Router">Vue-Router</span>
+                <span className="Inventory-item uni-app">uni-app</span>
+                <span className="Inventory-item Vant">Vant</span>
+                <span className="Inventory-item nodeJS">nodeJS</span>
+                <span className="Inventory-item eggJS">eggJS</span>
+                <span className="Inventory-item Electron">Electron</span>
+                <span className="Inventory-item MySQL">MySQL</span>
+              </div>
             </div>
             <ul>
               <li>
-                <span className="">熟悉 HTML(HTML5)、CSS(CSS3)、Javascript;</span>
+                <span className="">熟悉 HTML(HTML5)、CSS(CSS3)、JavaScript;</span>
               </li>
               <br />
               <li>
@@ -243,7 +277,7 @@ const myResume = () => {
               </li>
               <br />
               <li>
-                <span className="">了解使用 nodeJS、eggJS、MySQL、Electron。</span>
+                <span className="">了解 nodeJS、eggJS、MySQL、Electron。</span>
               </li>
             </ul>
           </div>

@@ -70,6 +70,11 @@ const Header = () => {
             </Link>
             <span className="header-txt">
               <strong className="header-font">The Future Depends on You</strong>
+              {!isMyResume && (
+                <Link href={{ pathname: '/myResume' }}>
+                  <span className="my-resume">我的简历</span>
+                </Link>
+              )}
             </span>
           </Col>
           <Col xs={0} sm={0} md={6} lg={12} xl={12}>

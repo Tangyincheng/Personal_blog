@@ -127,3 +127,12 @@ code {
 .article-top-item {
   background-color: rgba(237, 221, 158, 0.4);
 }
+
+@media screen and (max-width: 768px) {
+  .list-title {
+    height: auto;
+  }
+  .list-title:hover {
+    font-size: 1.3rem;
+  }
+}
