@@ -9,7 +9,7 @@
 }
 
 .my-introduce {
-  background-color: #edf2ff;
+  background: linear-gradient(#e3f2fd, #bbdefb);
   position: relative;
   overflow: hidden;
 }
@@ -31,13 +31,13 @@
 }
 
 .my-education {
-  background-color: #e7f5ff;
+  background-color: #b2ebf2;
   position: relative;
   opacity: 0.9;
 }
 
 .my-introduction {
-  background-color: #e3fafc;
+  background-color: #c8e6c9;
   position: relative;
   opacity: 0.9;
 }
@@ -68,7 +68,7 @@
 }
 
 .my-experience {
-  background-color: #e6fcf5;
+  background-color: #f0f4c3;
   position: relative;
   opacity: 0.8;
 }
@@ -202,7 +202,7 @@
 .my-experience .experience-content .experience-company {
   display: flex;
   justify-content: space-between;
-  background-color: #96f2d7;
+  background-color: #e6ee9c;
   border-radius: 8px;
   padding: 0 4px;
   margin: 4px 0;

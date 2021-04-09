@@ -31,15 +31,15 @@ module.exports = (appInfo) => {
     // database configuration
     client: {
       // host
-      host: 'host',
+      host: '114.117.209.134',
       // port
-      port: 'port',
+      port: '3306',
       // username
-      user: 'user',
+      user: 'root',
       // password
-      password: 'password',
+      password: 'TYC5201314tyc.',
       // database
-      database: 'database',
+      database: 'my_blog',
     },
     // load into app, default is open
     app: true,
@@ -51,9 +51,9 @@ module.exports = (appInfo) => {
     csrf: {
       enable: false,
     },
-    // domainWhiteList: ['http://localhost:3000', 'http://localhost:8000'],
+    domainWhiteList: ['http://localhost:3000', 'http://localhost:8000'],
     // domainWhiteList: ['http://www.tangyincheng.com', 'http://www.tangyincheng.com:81'],
-    domainWhiteList: ['http://114.117.209.134', 'http://114.117.209.134:81'],
+    // domainWhiteList: ['http://114.117.209.134', 'http://114.117.209.134:81'],
   }
 
   config.cors = {

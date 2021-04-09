@@ -70,22 +70,22 @@ const Header = () => {
             </Link>
             <span className="header-txt">
               <strong className="header-font">The Future Depends on You</strong>
-              {!isMyResume && (
+              {/* {!isMyResume && (
                 <Link href={{ pathname: '/myResume' }}>
                   <span className="my-resume">我的简历</span>
                 </Link>
-              )}
+              )} */}
             </span>
           </Col>
           <Col xs={0} sm={0} md={6} lg={12} xl={12}>
             {/* <audio src="http://114.117.209.134:8001/backgroundMusic.mp3" autoPlay></audio> */}
-            {!isMyResume && (
+            {/* {!isMyResume && (
               <div className="my_resume">
                 <Link href={{ pathname: '/myResume' }}>
                   <span>我的简历</span>
                 </Link>
               </div>
-            )}
+            )} */}
           </Col>
         </Row>
 
