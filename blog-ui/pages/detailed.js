@@ -126,7 +126,9 @@ const Detailed = (props) => {
               <div className="nav-title">
                 <strong>文章目录</strong>
               </div>
-              {tocify && tocify.render()}
+              <div style={{ maxHeight:"500px", overflowY:"auto" }}>
+                {tocify && tocify.render()}
+              </div>
             </div>
           </Affix>
         </Col>

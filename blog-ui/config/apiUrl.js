@@ -1,5 +1,5 @@
 let ipUrl = 'http://127.0.0.1:7001/default/'
-// let ipUrl = 'http://114.117.209.134:7001/default/'
+// let ipUrl = 'http://www.tangyincheng.com:7001/default/'
 
 let servicePath = {
   getArticleList: ipUrl + 'getArticleList', //  首页文章列表接口

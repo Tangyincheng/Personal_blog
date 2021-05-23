@@ -10,7 +10,7 @@ const Footer = () => (
     {/* <div>基于nextjs、egjs、ant Design</div> */}
     <div>
       <a href="http://beian.miit.gov.cn/" target="_blank" style={{ color: '#007ca3' }}>
-        蜀ICP备20009871号
+        蜀ICP备2021009699号-1
       </a>
     </div>
   </div>

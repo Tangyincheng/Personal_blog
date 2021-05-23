@@ -8,6 +8,7 @@ import { articleType } from './API.d';
  * 文章列表
  */
 export async function getArticleList(params: { currentPage: number; pageSize: number }) {
+  // return request(`${ipUrl}getArticleList/${params.currentPage}/${params.pageSize}`);
   return request(`${ipUrl}getArticleList/${params.currentPage}/${params.pageSize}`, {
     credentials: 'include'
   });

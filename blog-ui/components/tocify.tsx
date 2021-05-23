@@ -71,7 +71,7 @@ export default class Tocify {
 
   render() {
     return (
-      <Anchor affix showInkInFixed>
+      <Anchor affix showInkInFixed style={{maxHeight:'500px'}}>
         {this.renderToc(this.tocItems)}
       </Anchor>
     );
