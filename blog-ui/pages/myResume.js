@@ -332,7 +332,7 @@ const myResume = () => {
                 </div>
                 <div>
                   <div className="experience-company">
-                    <span>时间：2020.08 - 至今</span>
+                    <span>时间：2020.08 - 2021.05</span>
                     <span>公司：杭州希维信息科技有限公司成都分公司</span>
                     <span>职位：前端工程师</span>
                   </div>
@@ -379,7 +379,7 @@ const myResume = () => {
                       <li>
                         <span>项目主要功能：集装箱管理、库存管理、订单管理</span>
                         <br />
-                        <span>小程序由我独立完成</span>
+                        {/* <span>小程序由我独立完成</span> */}
                         <ul>
                           <li>
                             <strong>集装箱管理</strong>：展示集装箱列表、集装箱列表筛选、集装箱操作功能、集装箱添加图片；
