@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Head from 'next/head'
 import { Row, Col, List, Affix, Breadcrumb, Spin, Pagination } from 'antd'
 
@@ -7,6 +8,24 @@ import '../public/style/pages/myResume-font.css'
 
 const myResume = () => {
   const top = 0
+  const arr = ['JavaScript', 'node', 'TypeScript', 'Vue', 'React', 'dva', 'canvas', 'svg', 'html', 'css', 'next', 'egg']
+
+  useEffect(() => {
+    document.addEventListener('mousedown', e => {
+      console.log(e)
+      const node = document.createElement('div')
+      node.style.top = (e.pageY - 20)+ 'px'
+      node.style.left =(e.pageX) + 'px'
+      node.innerHTML = arr[Math.floor(Math.random() * 12)]
+      node.className = 'text'
+      document.body.append(node)
+      setTimeout(() => {
+        document.body.removeChild(node)
+      }, 2000)
+    })
+    return () => document.removeEventListener('mousedown')
+  }, [])
+
   return (
     <div className="container">
       <Head>

@@ -246,3 +246,20 @@
     flex-direction: column;
   }
 }
+
+.text {
+  color: teal;
+  position: absolute;
+  animation: move 2s;
+}
+
+@keyframes move {
+  from {
+      transform: translateX(0);
+      opacity: 1;
+  }
+  to {
+      transform: translateY(-100px);
+      opacity: 0;
+  }
+}
