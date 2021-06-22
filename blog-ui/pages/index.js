@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { Row, Col, List, Affix, Spin } from 'antd'
@@ -17,6 +17,7 @@ import Statistics from '../components/Statistics'
 import BlogEvent from '../components/BlogEvent'
 import FriendsLink from '../components/FriendsLink'
 import Quotes from '../components/Quotes'
+import watch from '../components/watch'
 
 import '../public/style/pages/index.css'
 
@@ -43,6 +44,10 @@ const Home = (list) => {
       return hljs.highlightAuto(code).value
     },
   })
+
+  // useEffect(()=> {
+  //   watch()
+  // },[])
 
   return (
     <div className="container">
@@ -102,6 +107,7 @@ const Home = (list) => {
               </List.Item>
             )}
           />
+          {/* <canvas id = "mycanvas" width = "250" height = "500" ></canvas> */}
           {/* </Spin> */}
         </Col>
         <Col className="comm-right" xs={0} sm={0} md={6} lg={6} xl={6}>

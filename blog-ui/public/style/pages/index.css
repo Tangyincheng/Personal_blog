@@ -136,3 +136,10 @@ code {
     font-size: 1.3rem;
   }
 }
+
+#mycanvas {
+  position: fixed;
+  top: 0;
+  right: 30%;
+  z-index: 999;
+}

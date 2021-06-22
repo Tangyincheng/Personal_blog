@@ -23,6 +23,7 @@ import '../public/style/pages/detailed.css'
 
 import Tocify from '../components/tocify.tsx'
 import servicePath from '../config/apiUrl'
+import watch from '../components/watch'
 
 const Detailed = (props) => {
   // console.log('props', props)
@@ -67,6 +68,11 @@ const Detailed = (props) => {
       }
     }
   }, [])
+
+  // useEffect(() => {
+  //   watch()
+  // }, [])
+
   return (
     <>
       <Head>
@@ -116,6 +122,7 @@ const Detailed = (props) => {
               </div>
             </Spin>
           </div>
+          {/* <canvas id = "mycanvas" width = "250" height = "500" ></canvas> */}
         </Col>
         <Col className="comm-right" xs={0} sm={0} md={6} lg={6} xl={6}>
           <Author />

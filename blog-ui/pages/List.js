@@ -13,6 +13,7 @@ import Advert from '../components/Advert'
 import Footer from '../components/Footer'
 import ArticleType from '../components/ArticleType'
 import '../public/style/pages/index.css'
+import watch from '../components/watch'
 
 import servicePath from '../config/apiUrl'
 
@@ -46,6 +47,10 @@ const myList = (list) => {
   useEffect(() => {
     axios(servicePath.getListTopById + typeId).then((res) => settoplist(res.data.data))
   }, [typeId])
+
+  // useEffect(() => {
+  //   watch()
+  // }, [])
 
   return (
     <div className="container">
@@ -113,7 +118,7 @@ const myList = (list) => {
               {/* <div className="split-line"></div> */}
             </div>
           )}
-
+          {/* <canvas id = "mycanvas" width = "250" height = "500" ></canvas> */}
           <List
             itemLayout="vertical"
             dataSource={mylist}

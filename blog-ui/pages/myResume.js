@@ -5,6 +5,7 @@ import { Row, Col, List, Affix, Breadcrumb, Spin, Pagination } from 'antd'
 import Header from '../components/Header'
 import '../public/style/pages/myResume.css'
 import '../public/style/pages/myResume-font.css'
+import watch from '../components/watch'
 
 const myResume = () => {
   const top = 0
@@ -24,6 +25,10 @@ const myResume = () => {
       }, 2000)
     })
     return () => document.removeEventListener('mousedown')
+  }, [])
+
+  useEffect(() => {
+    watch()
   }, [])
 
   return (
@@ -47,6 +52,7 @@ const myResume = () => {
             <div>
               <div className="introduction-left-item"></div>
             </div>
+            <canvas id = "mycanvas" width = "250" height = "500" ></canvas>
             <div className="my-introduce">
               <audio src="http://114.117.209.134:8001/backgroundMusic.mp3" autoPlay loop></audio>
               <div className="my-cylinder">

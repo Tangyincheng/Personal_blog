@@ -263,3 +263,24 @@
       opacity: 0;
   }
 }
+
+#mycanvas {
+  position: fixed;
+  top: 0;
+  right: 30%;
+  z-index: 999;
+  transform-origin: 125px 0px;
+  animation: watch 5s infinite ease-in-out;
+}
+
+@keyframes watch {
+  0% {
+    transform: rotateZ(-20deg);
+  }
+  50% {
+    transform: rotateZ(20deg);
+  }
+  100% {
+    transform: rotateZ(-20deg);
+  }
+}
