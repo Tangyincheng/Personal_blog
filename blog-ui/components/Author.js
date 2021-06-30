@@ -2,16 +2,28 @@
  * @Description: 作者组件
  * @Author: tangyincheng
  */
+import { useRouter } from 'next/router'
 import { Avatar, Divider, Tooltip } from 'antd'
 import { QqOutlined, WechatOutlined } from '@ant-design/icons'
 import '../public/style/components/author.css'
 // import logo from '../public/logo.jpg';
 
 const Author = () => {
+  const router = useRouter()
+  const onGoToResume = () => {
+    router.push('/myResume')
+  }
+
   return (
     <div className="author-div comm-box">
       <div>
-        <Avatar size={100} src="http://114.117.209.134/static/logo.png" alt="tangyincheng" className="author-logo" />
+        <Avatar
+          size={100}
+          src="http://114.117.209.134/static/logo.png"
+          alt="tangyincheng"
+          className="author-logo"
+          onClick={ onGoToResume }
+        />
       </div>
       <div className="author-introduction">
         <strong className="author-font">The Future Depends on You</strong>

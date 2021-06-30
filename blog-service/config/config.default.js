@@ -31,15 +31,15 @@ module.exports = (appInfo) => {
     // database configuration
     client: {
       // host
-      host: 'z',
+      host: '11',
       // port
       port: '3306',
       // username
-      user: 'user',
+      user: '1',
       // password
-      password: 'password',
+      password: '1',
       // database
-      database: 'database',
+      database: 'm',
     },
     // load into app, default is open
     app: true,
