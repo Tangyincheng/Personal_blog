@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
+// import Link from 'next/link'
+import Router from 'next/router'
 import { Row, Col, List, Affix, Breadcrumb, Spin, Pagination } from 'antd'
 import { CalendarOutlined, FireOutlined } from '@ant-design/icons'
 import axios from 'axios'
@@ -9,11 +10,11 @@ import { withRouter } from 'next/router'
 
 import Header from '../components/Header'
 import Author from '../components/Author'
-import Advert from '../components/Advert'
+// import Advert from '../components/Advert'
 import Footer from '../components/Footer'
 import ArticleType from '../components/ArticleType'
 import '../public/style/pages/index.css'
-import watch from '../components/watch'
+// import watch from '../components/watch'
 
 import servicePath from '../config/apiUrl'
 
@@ -49,8 +50,19 @@ const myList = (list) => {
   }, [typeId])
 
   // useEffect(() => {
+  //   document && document?.removeEventListener('mousedown')
+  // }, [])
+
+  // useEffect(() => {
   //   watch()
   // }, [])
+
+  const onGoToDetail = (id) => {
+    Router.push({
+      pathname: '/detailed',
+      query: { id: id }
+    })
+  }
 
   return (
     <div className="container">
@@ -90,27 +102,29 @@ const myList = (list) => {
                 renderItem={(item, index) => (
                   <List.Item key={index} className="article-top-item">
                     <Spin tip="加载中..." spinning={loading}>
-                      <div className="list-title" onClick={() => setLoading(true)}>
-                        <div className="list-top">置顶</div>
-                        <Link href={{ pathname: '/detailed', query: { id: item.id } }}>
-                          <a style={{ color: '#007ca3' }}>{item.title}</a>
-                        </Link>
+                      <div onClick={() => { onGoToDetail(item.id) }}>
+                        <div className="list-title" onClick={() => setLoading(true)}>
+                          <div className="list-top">置顶</div>
+                          {/* <Link href={{ pathname: '/detailed', query: { id: item.id } }}> */}
+                          <span style={{ color: '#007ca3', fontWeight: 'bold' }}>{item.title}</span>
+                          {/* </Link> */}
+                        </div>
+                        <div className="list-icon">
+                          <span>
+                            <CalendarOutlined />
+                            {item.addTime.split(' ')[0]}
+                          </span>
+                          <span>
+                            <CalendarOutlined />
+                            {item.typeName}
+                          </span>
+                          <span className={propleNum}>
+                            <FireOutlined />
+                            {item.view_count}人
+                          </span>
+                        </div>
+                        <div className="list-context">{item.introduce}</div>
                       </div>
-                      <div className="list-icon">
-                        <span>
-                          <CalendarOutlined />
-                          {item.addTime.split(' ')[0]}
-                        </span>
-                        <span>
-                          <CalendarOutlined />
-                          {item.typeName}
-                        </span>
-                        <span className={propleNum}>
-                          <FireOutlined />
-                          {item.view_count}人
-                        </span>
-                      </div>
-                      <div className="list-context">{item.introduce}</div>
                     </Spin>
                   </List.Item>
                 )}
@@ -125,31 +139,33 @@ const myList = (list) => {
             renderItem={(item, index) => (
               <List.Item key={index} className="article-item">
                 <Spin tip="加载中..." spinning={loading}>
-                  <div className="list-title" onClick={() => setLoading(true)}>
-                    <Link href={{ pathname: '/detailed', query: { id: item.id } }}>
-                      <a style={{ color: '#007ca3' }}>{item.title}</a>
-                    </Link>
-                  </div>
-                  <div className="list-icon">
-                    <span>
-                      <CalendarOutlined />
-                      {item.addTime.split(' ')[0]}
-                    </span>
-                    <span>
-                      <CalendarOutlined />
-                      {item.typeName}
-                    </span>
-                    <span className={propleNum}>
-                      <FireOutlined />
-                      {item.view_count}人
-                    </span>
-                  </div>
-                  <div className="list-context">{item.introduce}</div>
-                  {/* {
+                  <div onClick={() => { onGoToDetail(item.id) }}>
+                    <div className="list-title" onClick={() => setLoading(true)}>
+                      {/* <Link href={{ pathname: '/detailed', query: { id: item.id } }}> */}
+                      <span style={{ color: '#007ca3', fontWeight: 'bold' }}>{item.title}</span>
+                      {/* </Link> */}
+                    </div>
+                    <div className="list-icon">
+                      <span>
+                        <CalendarOutlined />
+                        {item.addTime.split(' ')[0]}
+                      </span>
+                      <span>
+                        <CalendarOutlined />
+                        {item.typeName}
+                      </span>
+                      <span className={propleNum}>
+                        <FireOutlined />
+                        {item.view_count}人
+                      </span>
+                    </div>
+                    <div className="list-context">{item.introduce}</div>
+                    {/* {
                   index < mylist.length - 1 &&
                   <div style={{ border: '1px solid #eee' }} />
                   } */}
-                  {/* <div style={{border: '1px solid #eee'}} /> */}
+                    {/* <div style={{border: '1px solid #eee'}} /> */}
+                  </div>
                 </Spin>
               </List.Item>
             )}

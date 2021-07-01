@@ -79,7 +79,7 @@ const watch = () => {
       cxt.beginPath()
       cxt.save()
       cxt.translate(120, 255)
-      cxt.fillStyle = '#adb5bd'
+      cxt.fillStyle = '#007ca3'
       cxt.font = "20px 黑体"
       var x = Math.cos(2 * Math.PI / 12 * i) * 60;
       var y = Math.sin(2 * Math.PI / 12 * i) * 60;

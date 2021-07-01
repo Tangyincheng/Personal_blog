@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
+// import Link from 'next/link'
+import Router from 'next/router'
 import { Row, Col, List, Affix, Spin } from 'antd'
 import { CalendarOutlined, FireOutlined } from '@ant-design/icons'
 import axios from 'axios'
@@ -10,14 +11,14 @@ import 'highlight.js/styles/monokai-sublime.css'
 
 import Header from '../components/Header'
 import Author from '../components/Author'
-import Advert from '../components/Advert'
+// import Advert from '../components/Advert'
 import Footer from '../components/Footer'
 import ArticleType from '../components/ArticleType'
 import Statistics from '../components/Statistics'
 import BlogEvent from '../components/BlogEvent'
 import FriendsLink from '../components/FriendsLink'
-import Quotes from '../components/Quotes'
-import watch from '../components/watch'
+// import Quotes from '../components/Quotes'
+// import watch from '../components/watch'
 
 import '../public/style/pages/index.css'
 
@@ -45,9 +46,16 @@ const Home = (list) => {
     },
   })
 
-  // useEffect(()=> {
-  //   watch()
-  // },[])
+  const onGoToDetail = (id) => {
+    Router.push({
+      pathname: '/detailed',
+      query: { id: id }
+    })
+  }
+
+  // useEffect(() => {
+  //   document && document.removeEventListener('mousedown')
+  // }, [])
 
   return (
     <div className="container">
@@ -78,31 +86,34 @@ const Home = (list) => {
             renderItem={(item, index) => (
               <List.Item key={index} className="article-item">
                 <Spin tip="加载中..." spinning={loading}>
-                  <div className="list-title" onClick={() => setLoading(true)}>
-                    <Link href={{ pathname: '/detailed', query: { id: item.id } }}>
-                      <a style={{ color: '#007ca3' }}>{item.title}</a>
-                    </Link>
-                  </div>
-                  <div className="list-icon">
-                    <span>
-                      <CalendarOutlined />
-                      {item.addTime.split(' ')[0]}
-                    </span>
-                    <span>
-                      <CalendarOutlined />
-                      {item.typeName}
-                    </span>
-                    <span>
-                      <FireOutlined />
-                      {item.view_count}人
-                    </span>
-                  </div>
-                  <div className="list-context" dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}></div>
-                  {/* <Divider /> */}
-                  {/* {
+                  <div onClick={() => { onGoToDetail(item.id) }}>
+                    <div className="list-title" onClick={() => setLoading(true)}>
+                      {/* <Link href={{ pathname: '/detailed', query: { id: item.id } }}> */}
+                      <span style={{ color: '#007ca3', fontWeight: 'bold' }}>{item.title}</span>
+                      {/* </Link> */}
+                    </div>
+                    <div className="list-icon">
+                      <span>
+                        <CalendarOutlined />
+                        {item.addTime.split(' ')[0]}
+                      </span>
+                      <span>
+                        <CalendarOutlined />
+                        {item.typeName}
+                      </span>
+                      <span>
+                        <FireOutlined />
+                        {item.view_count}人
+                      </span>
+                    </div>
+                    <div className="list-context" dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}></div>
+                    {/* <Divider /> */}
+                    {/* {
                     index < mylist.length - 1 &&
                     <div style={{ border: '1px solid #eee' }} />
                   } */}
+                  </div>
+
                 </Spin>
               </List.Item>
             )}

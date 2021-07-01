@@ -4,13 +4,13 @@
   color: #007ca3;
   padding: 0 0.5rem;
   display: flex;
-  transition: 200ms all ease-in-out;
+  /* transition: 200ms all ease-in-out; */
   align-items: center;
 }
 
-.list-title:hover {
+/* .list-title:hover {
   font-size: 1.5rem;
-}
+} */
 
 .list-top {
   width: 32px;
@@ -110,6 +110,12 @@ code {
 .article-top-item {
   border-radius: 10px;
   margin: 4px 0;
+  cursor: pointer;
+}
+
+.article-item:hover,
+.article-top-item:hover {
+  box-shadow: 0 0 8px #007ca3 inset;
 }
 
 .article-item:nth-child(odd) {

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import Head from 'next/head'
-import { Row, Col, List, Affix, Breadcrumb, Spin, Pagination } from 'antd'
+import { Row, Col, Affix } from 'antd'
 
 import Header from '../components/Header'
 import '../public/style/pages/myResume.css'
@@ -12,23 +12,26 @@ const myResume = () => {
   const arr = ['JavaScript', 'node', 'TypeScript', 'Vue', 'React', 'dva', 'canvas', 'svg', 'html', 'css', 'next', 'egg']
 
   useEffect(() => {
-    document.addEventListener('mousedown', e => {
-      console.log(e)
-      const node = document.createElement('div')
-      node.style.top = (e.pageY - 20)+ 'px'
-      node.style.left =(e.pageX) + 'px'
-      node.innerHTML = arr[Math.floor(Math.random() * 12)]
-      node.className = 'text'
-      document.body.append(node)
-      setTimeout(() => {
-        document.body.removeChild(node)
-      }, 2000)
-    })
-    return () => document.removeEventListener('mousedown')
+    document.addEventListener('mousedown', onMouseDown)
+    return () => document.removeEventListener('mousedown', onMouseDown)
   }, [])
 
+  const onMouseDown = (e) => {
+    const node = document.createElement('div')
+    node.style.top = (e.pageY - 20) + 'px'
+    node.style.left = (e.pageX) + 'px'
+    node.innerHTML = arr[Math.floor(Math.random() * 12)]
+    node.className = 'text'
+    document.body.append(node)
+    setTimeout(() => {
+      document.body.removeChild(node)
+    }, 2000)
+  }
+
   useEffect(() => {
-    watch()
+    if (document.body.offsetWidth > 1000) {
+      watch()
+    }
   }, [])
 
   return (
@@ -52,7 +55,7 @@ const myResume = () => {
             <div>
               <div className="introduction-left-item"></div>
             </div>
-            <canvas id = "mycanvas" width = "250" height = "500" ></canvas>
+            <canvas id="mycanvas" width="250" height="500" ></canvas>
             <div className="my-introduce">
               <audio src="http://114.117.209.134:8001/backgroundMusic.mp3" autoPlay loop></audio>
               <div className="my-cylinder">

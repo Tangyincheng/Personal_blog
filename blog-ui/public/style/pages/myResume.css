@@ -22,6 +22,7 @@
   border-radius: 100px;
   top: -50px;
   right: calc(var(--a) * 10px);
+  transition: 200ms all ease-in-out;
   transform: rotateZ(220deg) translate(0, 0);
 }
 
@@ -73,23 +74,23 @@
   opacity: 0.8;
 }
 
-.my-introduce:hover,
+/* .my-introduce:hover,
 .my-education:hover,
 .my-introduction:hover,
 .my-experience:hover {
   transform: scale(1.01);
   z-index: 0;
-  /* animation: itemMove 0.5s forwards ease-in-out; */
-}
+  animation: itemMove 0.5s forwards ease-in-out;
+} */
 
-@keyframes itemMove {
+/* @keyframes itemMove {
   0% {
     transform: scale(1);
   }
   100% {
     transform: scale(1.01);
   }
-}
+} */
 
 .my-resume-title {
   font-size: 20px;
