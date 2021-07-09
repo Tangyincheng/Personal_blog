@@ -65,7 +65,7 @@ const Header = () => {
         <Row type="flex" justify="center">
           <Col xs={24} sm={24} md={18} lg={12} xl={12} style={{ position: 'relative' }}>
             <Link href={{ pathname: '/' }}>
-              <img src="http://114.117.209.134/static/header.png" style={{ width: '100px' }} />
+              <img src="http://114.117.209.134/static/header.png" style={{ width: '100px', cursor: 'pointer' }} />
               {/* <span className="header-logo"><strong>tangyincheng</strong></span> */}
             </Link>
             <span className="header-txt">

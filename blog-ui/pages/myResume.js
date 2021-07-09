@@ -53,7 +53,7 @@ const myResume = () => {
         <Col xs={24} sm={24} md={24} lg={24} xl={24}>
           <div className="content">
             <div>
-              <div className="introduction-left-item"></div>
+              {/* <div className="introduction-left-item"></div> */}
             </div>
             <canvas id="mycanvas" width="250" height="500" ></canvas>
             <div className="my-introduce">

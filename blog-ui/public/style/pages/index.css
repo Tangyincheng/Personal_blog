@@ -1,3 +1,30 @@
+.background {
+  background-image: url("http://www.tangyincheng.com:8001/others/1625824569(1).jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 60vh;
+  font: 900 10rem '';
+  line-height: 80vh;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.background::before {
+  content: ' ';
+  background-size: cover;
+  background-image: inherit;
+  background-position: 50% 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -99;
+}
+
 .list-title {
   height: 30px;
   font-size: 1.3rem;
@@ -75,7 +102,7 @@ pre {
   border-radius: 0.3rem;
 }
 
-pre > code {
+pre>code {
   border: 0px !important;
   background-color: #283646 !important;
   color: #fff;
@@ -106,15 +133,13 @@ code {
   color: 'red';
 }
 
-.article-item,
-.article-top-item {
+.article-item, .article-top-item {
   border-radius: 10px;
   margin: 4px 0;
   cursor: pointer;
 }
 
-.article-item:hover,
-.article-top-item:hover {
+.article-item:hover, .article-top-item:hover {
   box-shadow: 0 0 8px #007ca3 inset;
 }
 

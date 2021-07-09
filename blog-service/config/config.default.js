@@ -39,7 +39,7 @@ module.exports = (appInfo) => {
       // password
       password: '.',
       // database
-      database: 'm',
+      database: '',
     },
     // load into app, default is open
     app: true,

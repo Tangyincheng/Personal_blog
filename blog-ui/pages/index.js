@@ -53,9 +53,22 @@ const Home = (list) => {
     })
   }
 
-  // useEffect(() => {
-  //   document && document.removeEventListener('mousedown')
-  // }, [])
+  useEffect(() => {
+    document.addEventListener('scroll', onBackground)
+    return () => {
+      document.removeEventListener('scroll', onBackground)
+    }
+  }, [])
+
+  const onBackground = () => {
+    const scrollY = window.scrollY
+    const background = document.querySelector(".background")
+    if (scrollY !== 0) {
+      background.style.backgroundPosition = `calc(50% + ${scrollY}px) calc(50% + ${scrollY}px)`
+    } else {
+      background.style.backgroundPosition = ''
+    }
+  }
 
   return (
     <div className="container">
@@ -72,7 +85,7 @@ const Home = (list) => {
       <Affix offsetTop={top}>
         <Header />
       </Affix>
-
+      <div class="background"><span>YCTANG</span></div>
       <Row className="comm-main" type="flex" justify="center">
         <Col className="comm-left" xs={23} sm={23} md={18} lg={18} xl={18}>
           <List
