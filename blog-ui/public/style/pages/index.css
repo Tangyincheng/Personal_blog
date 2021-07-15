@@ -1,5 +1,8 @@
 .background {
-  background-image: url("http://www.tangyincheng.com:8001/others/1625824569(1).jpg");
+  background: linear-gradient(to right, #EDE574, #E1F5C4);
+  background: linear-gradient(to right, #CC95C0, #DBD4B4, #7AA1D2);
+  /* background: linear-gradient(to right, #77A1D3, #79CBCA, #E684AE); */
+  /* background-image: url("http://www.tangyincheng.com:8001/others/1625824569(1).jpg"); */
   background-size: cover;
   background-position: 50% 50%;
   height: 60vh;
@@ -14,8 +17,11 @@
 
 .background::before {
   content: ' ';
+  background: linear-gradient(to right, #CC95C0, #DBD4B4, #7AA1D2);
+  /* background: linear-gradient(to right, #EDE574, #E1F5C4); */
+  /* background: linear-gradient(to right, #77A1D3, #79CBCA, #E684AE); */
   background-size: cover;
-  background-image: inherit;
+  /* background: inherit; */
   background-position: 50% 50%;
   position: absolute;
   top: 0;
@@ -23,6 +29,14 @@
   bottom: 0;
   right: 0;
   z-index: -99;
+}
+
+@media screen and (max-width: 768px) {
+  .background {
+    height: 40vh;
+    font: 900 5rem '';
+    line-height: 60vh;
+  }
 }
 
 .list-title {
